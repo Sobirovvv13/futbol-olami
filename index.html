@@ -14,6 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E1A13">
 <link rel="canonical" href="https://sobirovvv13.github.io/futbol-olami/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230E1A13' stroke='%23D4A017' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='14' fill='none' stroke='%23FAF8F2' stroke-width='3'/%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
@@ -94,7 +95,7 @@
     letter-spacing:2px;
     display:flex; align-items:center; gap:8px;
   }
-  .logo .dot{ width:34px; height:34px; border-radius:50%; background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMwYjFiMTQiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyMyIgZmlsbD0iI2Y4ZjdmMSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMzIgMThsNyA1LTMgOGgtOGwtMy04eiIgZmlsbD0iIzExMSIvPjxwYXRoIGQ9Ik0yNSAyM2wtOCAxLTQgOCA2IDUgNy02bTE0LTggOCAxIDQgOC02IDUtNy02TTI4IDMxbC01IDcgMyA5IDYgMiA2LTIgMy05LTUtN00xOSAzN2wtNSA1bTMxLTUgNSA1TTI2IDQ3bC0yIDVtMTQtNSAyIDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=") center/contain no-repeat; display:inline-block; flex:0 0 34px; }
+  .logo .dot{ width:10px; height:10px; border-radius:50%; background:var(--gold); }
   nav ul{
     list-style:none; display:flex; gap:28px;
     font-size:14px; font-weight:500;
@@ -195,203 +196,6 @@
   .timeline-item h3{ font-size:26px; margin:6px 0 8px; }
   .timeline-item p{ color:rgba(250,248,242,0.72); max-width:620px; font-size:15px; }
 
-  /* NEWS */
-  .news-updated{
-    font-family:'Space Mono', monospace;
-    font-size:12px;
-    color:rgba(250,248,242,0.5);
-    margin-top:8px;
-  }
-  .news-list{
-    margin-top:40px;
-    display:flex; flex-direction:column; gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-  }
-  .news-item{
-    background:var(--ink);
-    padding:28px;
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:24px;
-  }
-  @media (max-width:640px){ .news-item{ grid-template-columns:1fr; gap:10px; } }
-  .news-item .date{
-    font-family:'Space Mono', monospace;
-    font-size:13px;
-    color:var(--gold);
-  }
-  .news-item .tag{
-    display:inline-block;
-    font-family:'Space Mono', monospace;
-    font-size:10px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:var(--pitch-light);
-    border:1px solid var(--pitch-light);
-    border-radius:3px;
-    padding:2px 6px;
-    margin-top:8px;
-  }
-  .news-item h3{ font-size:22px; margin-bottom:8px; letter-spacing:0.3px; }
-  .news-item p{ font-size:14px; color:rgba(250,248,242,0.7); }
-  .news-note{
-    margin-top:28px;
-    font-size:13px;
-    color:rgba(250,248,242,0.45);
-    border-left:2px solid var(--gold);
-    padding-left:14px;
-  }
-
-  /* LIVE NEWS WIDGET */
-  .live-news{
-    margin-top:56px;
-  }
-  .live-news .live-head{
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:20px;
-  }
-  .live-news .live-head .dot-live{
-    width:8px; height:8px; border-radius:50%;
-    background:var(--red);
-    animation:pulse 1.6s infinite;
-  }
-  .live-news .live-head h3{
-    font-size:22px; letter-spacing:0.5px;
-  }
-  .live-news .live-source{
-    font-family:'Space Mono', monospace;
-    font-size:11px; color:rgba(250,248,242,0.4);
-  }
-  #live-news-list{
-    display:flex; flex-direction:column;
-    border-top:1px solid var(--line);
-  }
-  .live-news-item{
-    display:block;
-    padding:16px 0;
-    border-bottom:1px solid var(--line);
-    text-decoration:none;
-    color:var(--chalk);
-  }
-  .live-news-item:hover .live-news-title{ color:var(--gold); }
-  .live-news-title{
-    font-size:15px; font-weight:500;
-    transition:color .2s;
-  }
-  .live-news-date{
-    font-family:'Space Mono', monospace;
-    font-size:11px;
-    color:rgba(250,248,242,0.45);
-    margin-top:4px;
-  }
-  .live-news-status{
-    font-family:'Space Mono', monospace;
-    font-size:13px;
-    color:rgba(250,248,242,0.5);
-    padding:12px 0;
-  }
-
-  /* PROFILE MENU — no longer fixed over the page */
-  .profile-menu{position:relative;margin-left:10px}
-  .profile-toggle{
-    display:inline-flex;align-items:center;gap:7px;
-    background:var(--card);color:var(--chalk);
-    border:1px solid var(--line);border-radius:20px;
-    padding:8px 12px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:12px
-  }
-  .profile-toggle:hover{border-color:var(--gold);color:var(--gold)}
-  .profile-toggle .avatar{
-    width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
-    background:var(--gold);color:var(--ink);font-family:'Bebas Neue',sans-serif;font-size:12px
-  }
-  .profile-card{
-    position:absolute;top:calc(100% + 9px);right:0;width:245px;padding:16px;
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    box-shadow:0 10px 28px rgba(0,0,0,.42);display:none;z-index:80
-  }
-  .profile-card.open{display:block}
-  .profile-card .name{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.5px;color:var(--chalk);display:block}
-  .profile-card .dob{font-family:'Space Mono',monospace;font-size:10px;color:rgba(250,248,242,.5);display:block;margin:3px 0 10px}
-  .profile-card a{color:var(--gold);text-decoration:none;font-size:12px}
-  .profile-card a:hover{text-decoration:underline}
-  @media (max-width:720px){
-    .profile-menu{margin-left:6px}
-    .profile-toggle .label{display:none}
-    .profile-card{right:-4px}
-  }
-
-  /* SEARCH */
-  .search-wrap{
-    position:relative;
-    margin-left:auto;
-    margin-right:20px;
-  }
-  @media (max-width:720px){ .search-wrap{ margin-right:0; flex:1; max-width:220px; } }
-  .search-box-nav{
-    display:flex; align-items:center; gap:8px;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:8px 14px;
-  }
-  .search-box-nav svg{ flex-shrink:0; opacity:0.6; }
-  .search-box-nav input{
-    background:transparent;
-    border:none; outline:none;
-    color:var(--chalk);
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:13px;
-    width:150px;
-  }
-  .search-box-nav input::placeholder{ color:rgba(250,248,242,0.4); }
-  .search-results{
-    position:absolute;
-    top:calc(100% + 8px);
-    right:0;
-    width:320px;
-    max-height:360px;
-    overflow-y:auto;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:8px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.4);
-    display:none;
-    z-index:70;
-  }
-  .search-results.open{ display:block; }
-  .search-result-item{
-    display:block;
-    padding:12px 16px;
-    border-bottom:1px solid var(--line);
-    text-decoration:none;
-    color:var(--chalk);
-    cursor:pointer;
-  }
-  .search-result-item:last-child{ border-bottom:none; }
-  .search-result-item:hover{ background:rgba(212,160,23,0.08); }
-  .search-result-item .sr-title{ font-size:13px; font-weight:600; margin-bottom:3px; }
-  .search-result-item .sr-snippet{ font-size:12px; color:rgba(250,248,242,0.55); }
-  .search-result-item .sr-section{
-    font-family:'Space Mono', monospace;
-    font-size:10px;
-    color:var(--gold);
-    text-transform:uppercase;
-    margin-bottom:4px;
-    display:block;
-  }
-  .search-empty{
-    padding:16px;
-    font-size:13px;
-    color:rgba(250,248,242,0.5);
-  }
-  .search-highlight{
-    outline:2px solid var(--gold);
-    outline-offset:4px;
-    border-radius:4px;
-    transition:outline-color .3s;
-  }
-
   /* RULES GRID */
   .grid-3{
     display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
@@ -487,66 +291,23 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
   }
-
-  .logo-ball{width:38px!important;height:38px!important;min-width:38px!important;display:inline-flex!important;align-items:center;justify-content:center;margin-right:9px;vertical-align:middle}
-  .logo-ball img{width:100%!important;height:100%!important;display:block!important}
-  .lang-toggle{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:7px 10px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--chalk);cursor:pointer;font-family:'Space Mono',monospace;font-size:10px}
-  .lang-toggle:hover,.lang-toggle.active{border-color:var(--gold);color:var(--gold)}
-  .uz-label{font-size:9px;opacity:.7;margin-left:3px}
-  @media(max-width:720px){.lang-toggle{padding:7px 8px}.uz-label{display:none}}
-
-  .logo-ball{
-    width:38px!important;height:38px!important;min-width:38px!important;
-    display:inline-flex!important;align-items:center;justify-content:center;
-    margin-right:8px;vertical-align:middle;
-    font-family:"Segoe UI Emoji","Noto Color Emoji",Arial,sans-serif!important;
-    font-size:30px!important;line-height:1!important;
-    background:transparent!important;border:0!important;
-  }
-
 </style>
-  <meta name="theme-color" content="#0b1b14">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEyIiBmaWxsPSIjMGIxYjE0Ii8+Cjx0ZXh0IHg9IjMyIiB5PSI0OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsLFNlZ29lIFVJIEVtb2ppLE5vdG8gQ29sb3IgRW1vamksc2Fucy1zZXJpZiI+4pq9PC90ZXh0Pgo8L3N2Zz4=">
-<link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEyIiBmaWxsPSIjMGIxYjE0Ii8+Cjx0ZXh0IHg9IjMyIiB5PSI0OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsLFNlZ29lIFVJIEVtb2ppLE5vdG8gQ29sb3IgRW1vamksc2Fucy1zZXJpZiI+4pq9PC90ZXh0Pgo8L3N2Zz4=">
 </head>
 <body>
 
 <header>
   <nav>
     <div class="logo"><span class="dot"></span>FUTBOL OLAMI</div>
-    <div class="search-wrap">
-      <div class="search-box-nav">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="site-search" placeholder="Qidirish... (masalan: Real Madrid)" autocomplete="off">
-      </div>
-      <div class="search-results" id="search-results"></div>
-    </div>
     <ul class="nav-links">
       <li><a href="#tarix">Tarix</a></li>
-      <li><a href="#yangiliklar">Yangiliklar</a></li>
       <li><a href="#qoidalar">Qoidalar</a></li>
       <li><a href="#ligalar">Ligalar</a></li>
       <li><a href="#afsonalar">Afsonalar</a></li>
-      <li><a href="#natijalar">Natijalar</a></li>
-      <li><a href="#transferlar">Transferlar</a></li>
       <li><a href="#rekordlar">Rekordlar</a></li>
     </ul>
-    <button class="lang-toggle" id="uz-translate" type="button" title="O'zbekcha — avtomatik tarjima">UZ <span class="uz-label">O'zbekcha</span></button>
-    <div class="profile-menu">
-      <button class="profile-toggle" id="profile-toggle" type="button" aria-expanded="false" aria-controls="profile-card">
-        <span class="avatar">M</span><span class="label">Men haqimda</span>
-      </button>
-      <div class="profile-card" id="profile-card">
-        <span class="name">Sobirov Muhammadali Obid og'li</span>
-        <span class="dob">13.09.2008</span>
-        <a href="https://instagram.com/Sobirovvv13_" target="_blank" rel="noopener noreferrer">Instagram: @Sobirovvv13_</a>
-      </div>
-    </div>
   </nav>
 </header>
+
 <section class="hero">
   <div class="wrap">
     <div class="scoreboard mono"><span class="live"></span> JONLI QO'LLANMA — YANGILANIB TURADI</div>
@@ -568,82 +329,30 @@
     <div class="eyebrow">Tarix</div>
     <h2 style="font-size:clamp(36px,6vw,56px)">Futbolning yo'li</h2>
     <div class="timeline">
-      <div class="timeline-item search-target">
+      <div class="timeline-item">
         <div class="year mono">Qadim davr</div>
         <h3>Ilk ildizlar</h3>
         <p>To'p bilan oyoqda o'ynaladigan o'yinlarning ilk ko'rinishlari Xitoy, Yunoniston va Markaziy Amerika kabi turli qadimiy tsivilizatsiyalarda uchraydi, ammo bugungi futbolning bevosita ajdodi Angliyada shakllangan.</p>
       </div>
-      <div class="timeline-item search-target">
+      <div class="timeline-item">
         <div class="year mono">1863</div>
         <h3>Rasmiy qoidalarning tug'ilishi</h3>
         <p>Londonda Football Association tashkil topib, o'yinning birinchi yagona qoidalar to'plami qabul qilindi — bu kun zamonaviy futbolning rasmiy boshlanish nuqtasi hisoblanadi.</p>
       </div>
-      <div class="timeline-item search-target">
+      <div class="timeline-item">
         <div class="year mono">1904</div>
         <h3>FIFA tashkil topadi</h3>
         <p>Xalqaro Futbol Federatsiyalari Assotsiatsiyasi (FIFA) Parijda tashkil etilib, futbolni butun dunyo bo'ylab birlashtiruvchi tashkilotga aylanadi.</p>
       </div>
-      <div class="timeline-item search-target">
+      <div class="timeline-item">
         <div class="year mono">1930</div>
         <h3>Birinchi Jahon chempionati</h3>
         <p>Urugvayda birinchi FIFA Jahon chempionati bo'lib o'tadi va mezbon jamoa o'zi ham chempion bo'ladi. Shundan beri turnir har to'rt yilda o'tkaziladi.</p>
       </div>
-      <div class="timeline-item search-target">
+      <div class="timeline-item">
         <div class="year mono">Bugungi kun</div>
         <h3>Global sport</h3>
         <p>Futbol hozirda milliardlab muxlislarga ega bo'lgan sayyoradagi eng ommabop sport turiga aylandi — professional ligalar, milliy terma jamoalar va yoshlar akademiyalari orqali rivojlanmoqda.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="pitch-divider"></div>
-
-<section id="yangiliklar">
-  <div class="wrap">
-    <div class="eyebrow">Yangiliklar</div>
-    <h2 style="font-size:clamp(36px,6vw,56px)">So'nggi voqealar</h2>
-    <div class="news-updated">Oxirgi yangilanish: 22-avgust, 2026</div>
-    <div class="news-list">
-      <div class="news-item search-target">
-        <div><div class="date mono">16.08.2026</div><div class="tag">Angliya</div></div>
-        <div>
-          <h3>Arsenal — Community Shield sohibi</h3>
-          <p>Arsenal Kardiffdagi Principality stadionida Manchester Sitini 3:0 hisobida mag'lub etib, mavsum oldidan o'tkaziladigan an'anaviy Community Shield trofeyini qo'lga kiritdi. Kalafiori, Xavertz va O'degaard darvozaga to'p kiritgan futbolchilar bo'ldi. Bu Enso Mareskaning Siti bosh murabbiyi sifatidagi birinchi rasmiy o'yini edi.</p>
-        </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">22.08.2026</div><div class="tag">Premier League</div></div>
-        <div>
-          <h3>Yangi mavsum to'liq quvvatda</h3>
-          <p>Angliya Premer-ligasi 2026/27 mavsumi boshlandi. Shu haftasavot kuni Manchester Yunayted, Everton, Nottingem Forest, Tottenhem va boshqa jamoalar maydonga chiqadi. Transfer oynasi 1-sentyabrgacha ochiq qoladi, shu sababli hafta davomida yangi imzolar kutilmoqda.</p>
-        </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">07.08.2026</div><div class="tag">O'zbekiston</div></div>
-        <div>
-          <h3>Superligada Neftchi peshqadam</h3>
-          <p>O'zbekiston Superligasida "Neftchi" Farg'ona 28 ochko bilan jadval boshida turibdi, "Paxtakor" 26 ochko bilan ikkinchi o'rinni egallagan. So'nggi turda "Paxtakor" o'z maydonida "Buxoro" bilan 2:2 durang o'ynadi.</p>
-        </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">Davom etmoqda</div><div class="tag">Transferlar</div></div>
-        <div>
-          <h3>Yozgi transfer oynasi yakuniga yaqinlashmoqda</h3>
-          <p>Yevropaning yetakchi ligalarida transfer oynasi 1-sentyabrda yopiladi. Premer-liga klublari orasida so'nggi kunlarda faol savdolar kuzatilmoqda, jumladan yarim himoyachilar va hujumchilar yo'nalishida bir qancha yirik bitimlar muhokama qilinmoqda.</p>
-        </div>
-      </div>
-    </div>
-    <div class="news-note">Eslatma: O'zbekiston futboli alohida qo'lda yuritiladi. Xalqaro yangiliklar tashqi manbalardan olinadi.</div>
-
-    <div class="live-news">
-      <div class="live-head">
-        <span class="dot-live"></span>
-        <h3>Jonli yangiliklar oqimi</h3>
-      </div>
-      <div class="live-source">Manba: BBC Sport Football &mdash; avtomatik yuklanadi</div>
-      <div id="live-news-list">
-        <div class="live-news-status" id="live-news-status">Yangiliklar yuklanmoqda&hellip;</div>
       </div>
     </div>
   </div>
@@ -656,32 +365,32 @@
     <div class="eyebrow">Qoidalar</div>
     <h2 style="font-size:clamp(36px,6vw,56px)">O'yinning asoslari</h2>
     <div class="grid-3">
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">01</div>
         <h3>O'yin vaqti</h3>
         <p>Asosiy o'yin ikki yarim taymdan iborat bo'lib, har biri 45 daqiqa davom etadi. Kerak bo'lganda qo'shimcha vaqt va penalti seriyasi qo'llaniladi.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">02</div>
         <h3>Jamoa tarkibi</h3>
         <p>Har bir jamoa maydonda 11 nafar o'yinchi bilan chiqadi, ulardan biri darvozabon. Almashtirishlar musobaqa qoidalariga qarab cheklanadi.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">03</div>
         <h3>Ofsayd</h3>
         <p>Hujumchi o'yinchi to'p uzatilgan payt raqib darvozasiga oxirgi himoyachidan yaqinroq turgan bo'lsa, ofsayd qoidasi buzilgan hisoblanadi.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">04</div>
         <h3>Sariq va qizil kartalar</h3>
         <p>Sariq karta ogohlantirish, ikkinchi sariq esa avtomatik qizil kartaga aylanadi. Qizil karta o'yinchini maydondan chetlatadi.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">05</div>
         <h3>Penalti</h3>
         <p>Jarima maydonchasida sodir bo'lgan qo'pol xatolik uchun 11 metrlik jarima zarbasi (penalti) tayinlanadi.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">06</div>
         <h3>VAR</h3>
         <p>Video Yordamchi Hakam (VAR) tizimi gollar, penaltilar va qizil kartalar kabi muhim holatlarni qayta ko'rib chiqishda hakamlarga yordam beradi.</p>
@@ -697,37 +406,37 @@
     <div class="eyebrow">Ligalar</div>
     <h2 style="font-size:clamp(36px,6vw,56px)">Dunyo bo'ylab top ligalar</h2>
     <div class="league-list">
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">ENG</div>
         <div><h3>Premier League</h3><div class="country">Angliya</div></div>
         <div></div>
         <div class="teams-count mono">20 jamoa</div>
       </div>
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">ESP</div>
         <div><h3>La Liga</h3><div class="country">Ispaniya</div></div>
         <div></div>
         <div class="teams-count mono">20 jamoa</div>
       </div>
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">ITA</div>
         <div><h3>Serie A</h3><div class="country">Italiya</div></div>
         <div></div>
         <div class="teams-count mono">20 jamoa</div>
       </div>
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">GER</div>
         <div><h3>Bundesliga</h3><div class="country">Germaniya</div></div>
         <div></div>
         <div class="teams-count mono">18 jamoa</div>
       </div>
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">FRA</div>
         <div><h3>Ligue 1</h3><div class="country">Fransiya</div></div>
         <div></div>
         <div class="teams-count mono">18 jamoa</div>
       </div>
-      <div class="league-row search-target">
+      <div class="league-row">
         <div class="flag mono">UZB</div>
         <div><h3>Superliga</h3><div class="country">O'zbekiston</div></div>
         <div></div>
@@ -744,17 +453,17 @@
     <div class="eyebrow">Afsonalar</div>
     <h2 style="font-size:clamp(36px,6vw,56px)">O'yin tariximi belgilagan ismlar</h2>
     <div class="grid-3">
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">BRA</div>
         <h3>Pele</h3>
         <p>Uch marta Jahon chempioni (1958, 1962, 1970), 20-asr futbolining ramzlaridan biri sifatida tan olingan.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">ARG</div>
         <h3>Diego Maradona</h3>
         <p>1986-yilgi Jahon chempionatida Argentinani yakka o'zi deyarli chempionlikka olib chiqqan, "Qo'l bilan urilgan gol" va "Asr goli" bilan mashhur.</p>
       </div>
-      <div class="rule-card search-target">
+      <div class="rule-card">
         <div class="num mono">FRA</div>
         <h3>Zinedine Zidane</h3>
         <p>1998-yilgi Jahon chempionatida Fransiyani chempion qilgan, keyinchalik murabbiy sifatida Real Madrid bilan uch marta Chempionlar Ligasini yutgan.</p>
@@ -765,89 +474,24 @@
 
 <div class="pitch-divider"></div>
 
-<section id="natijalar">
-  <div class="wrap">
-    <div class="eyebrow">Natijalar</div>
-    <h2 style="font-size:clamp(36px,6vw,56px)">So'nggi o'yin natijalari</h2>
-    <div class="news-updated">Holat: 22-avgust, 2026</div>
-    <div class="news-list" id="auto-results-list">
-      <div class="live-news-status">Mashhur ligalar natijalari avtomatik yuklanmoqda...</div>
-    </div>
-    <div class="news-list" style="margin-top:18px">
-      <div class="news-item search-target">
-        <div><div class="date mono">O'zbekiston</div><div class="tag">Qo'lda</div></div>
-        <div><h3>O'zbekiston futboli</h3><p>Superliga va O'zbekiston futboli natijalari bu qismda qo'lda yangilanadi.</p></div>
-      </div>
-    </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">18.04.2026</div><div class="tag">Man City</div></div>
-        <div>
-          <h3>Manchester Siti 2:1 Arsenal</h3>
-          <p>Ikki jamoaning so'nggi bevosita uchrashuvida Manchester Siti Arsenalni 2:1 hisobida mag'lub etgan edi. Biroq mavsum oldi Community Shield'ida rollar teskari bo'lib, Arsenal 3:0 hisobida qaytarib berdi.</p>
-        </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">07.08.2026</div><div class="tag">O'zbekiston</div></div>
-        <div>
-          <h3>Paxtakor 2:2 Buxoro</h3>
-          <p>Superliganing 16-turida "Paxtakor" o'z maydonida "Buxoro" bilan 2:2 durang o'ynadi. Jadval boshida "Neftchi" Farg'ona 28 ochko bilan peshqadam, "Paxtakor" 26 ochko bilan ikkinchi o'rinda.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="pitch-divider"></div>
-
-<section id="transferlar">
-  <div class="wrap">
-    <div class="eyebrow">Transferlar</div>
-    <h2 style="font-size:clamp(36px,6vw,56px)">Eng so'nggi transfer yangiliklari</h2>
-    <div class="news-updated">Holat: 22-avgust, 2026</div>
-    <div class="news-list" id="auto-transfers-list">
-      <div class="live-news-status">Ishonchli manbalardan transfer yangiliklari avtomatik yuklanmoqda...</div>
-    </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">22.08.2026</div><div class="tag">Arsenal</div></div>
-        <div>
-          <h3>Bruno Gimaraes — Nyukaslddan Arsenalga</h3>
-          <p>Arsenal braziliyalik yarim himoyachi Bruno Gimaraesni Nyukasl Yunayteddan rasman transfer qildi. Bitim yozgi transfer oynasining yakuniy bosqichidagi yirik savdolardan biri bo'ldi.</p>
-        </div>
-      </div>
-      <div class="news-item search-target">
-        <div><div class="date mono">Davom etmoqda</div><div class="tag">Umumiy</div></div>
-        <div>
-          <h3>Transfer oynasi 1-sentyabrda yopiladi</h3>
-          <p>Yevropaning yetakchi ligalarida yozgi transfer oynasi 1-sentyabr kuni soat 23:00da (Buyuk Britaniya vaqti) yopiladi. Shu sababli so'nggi kunlarda klublar orasida savdolar faollashishi kutilmoqda.</p>
-        </div>
-      </div>
-    </div>
-    <div class="news-note">Eslatma: transfer yangiliklari avtomatik olinadi. O'zbekiston futboli esa alohida qo'lda yuritiladi.</div>
-  </div>
-</section>
-
-<div class="pitch-divider"></div>
-
 <section id="rekordlar">
   <div class="wrap">
     <div class="eyebrow">Statistika</div>
     <h2 style="font-size:clamp(36px,6vw,56px)">Raqamlarda futbol</h2>
     <div class="records">
-      <div class="record-cell search-target">
+      <div class="record-cell">
         <div class="val mono">8</div>
         <div class="desc">Jahon chempionatini eng ko'p yutgan davlat (Braziliya, 5 marta) va Jahon chempionatida eng ko'p final o'ynagan davlatlar soni</div>
       </div>
-      <div class="record-cell search-target">
+      <div class="record-cell">
         <div class="val mono">211</div>
         <div class="desc">FIFA tarkibiga kiruvchi milliy federatsiyalar soni — bu BMTdan ham ko'p</div>
       </div>
-      <div class="record-cell search-target">
+      <div class="record-cell">
         <div class="val mono">3.5+</div>
         <div class="desc">Milliard, dunyo bo'ylab o'zini futbol muxlisi deb hisoblovchilar taxminiy soni</div>
       </div>
-      <div class="record-cell search-target">
+      <div class="record-cell">
         <div class="val mono">64</div>
         <div class="desc">Jahon chempionatida o'ynaladigan o'yinlar soni (2026 yildan boshlab 104 taga oshadi)</div>
       </div>
@@ -867,270 +511,6 @@
   </div>
   <div class="copyright">© 2026 Futbol Olami. Barcha huquqlar himoyalangan.</div>
 </footer>
-
-<script>
-(function(){
-  var input = document.getElementById('site-search');
-  var resultsBox = document.getElementById('search-results');
-  var index = [];
-
-  function buildIndex(){
-    index = [];
-    document.querySelectorAll('.search-target').forEach(function(el){
-      var section = el.closest('section[id]');
-      var sectionLabel = section ? (section.querySelector('.eyebrow') ? section.querySelector('.eyebrow').textContent : section.id) : '';
-      var heading = el.querySelector('h3');
-      var title = heading ? heading.textContent.trim() : el.textContent.trim().slice(0,40);
-      var text = el.textContent.replace(/\s+/g,' ').trim();
-      index.push({ el: el, title: title, section: sectionLabel, text: text, textLower: text.toLowerCase() });
-    });
-  }
-  buildIndex();
-
-  function clearHighlights(){
-    document.querySelectorAll('.search-highlight').forEach(function(el){ el.classList.remove('search-highlight'); });
-  }
-
-  function showResults(matches, query){
-    resultsBox.innerHTML = '';
-    if (!matches.length){
-      resultsBox.innerHTML = '<div class="search-empty">"' + query + '" bo\'yicha hech narsa topilmadi.</div>';
-      resultsBox.classList.add('open');
-      return;
-    }
-    matches.slice(0, 8).forEach(function(m){
-      var item = document.createElement('div');
-      item.className = 'search-result-item';
-      var idx = m.textLower.indexOf(query.toLowerCase());
-      var snippetStart = Math.max(0, idx - 30);
-      var snippet = (snippetStart > 0 ? '…' : '') + m.text.slice(snippetStart, snippetStart + 100) + '…';
-      item.innerHTML = '<span class="sr-section">' + m.section + '</span><div class="sr-title">' + m.title + '</div><div class="sr-snippet">' + snippet + '</div>';
-      item.addEventListener('click', function(){
-        clearHighlights();
-        m.el.scrollIntoView({ behavior:'smooth', block:'center' });
-        m.el.classList.add('search-highlight');
-        resultsBox.classList.remove('open');
-        input.blur();
-      });
-      resultsBox.appendChild(item);
-    });
-    resultsBox.classList.add('open');
-  }
-
-  input.addEventListener('input', function(){
-    var q = input.value.trim();
-    if (!q){ resultsBox.classList.remove('open'); return; }
-    var qLower = q.toLowerCase();
-    var matches = index.filter(function(m){ return m.textLower.indexOf(qLower) !== -1; });
-    showResults(matches, q);
-  });
-
-  document.addEventListener('click', function(e){
-    if (!e.target.closest('.search-wrap')){ resultsBox.classList.remove('open'); }
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var listEl = document.getElementById('live-news-list');
-  var statusEl = document.getElementById('live-news-status');
-  var feedUrl = 'https://feeds.bbci.co.uk/sport/football/rss.xml';
-  var apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl);
-
-  fetch(apiUrl)
-    .then(function(res){ return res.json(); })
-    .then(function(data){
-      if (!data.items || !data.items.length) { throw new Error('empty'); }
-      listEl.innerHTML = '';
-      data.items.slice(0, 8).forEach(function(item){
-        var a = document.createElement('a');
-        a.href = item.link;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.className = 'live-news-item';
-
-        var title = document.createElement('div');
-        title.className = 'live-news-title';
-        title.textContent = item.title;
-
-        var date = document.createElement('div');
-        date.className = 'live-news-date';
-        var d = new Date(item.pubDate);
-        date.textContent = isNaN(d) ? '' : d.toLocaleDateString('uz-UZ', { day:'2-digit', month:'2-digit', year:'numeric' });
-
-        a.appendChild(title);
-        a.appendChild(date);
-        listEl.appendChild(a);
-      });
-    })
-    .catch(function(){
-      statusEl.textContent = "Jonli oqimni yuklab bo'lmadi. Iltimos internetga ulanishni tekshiring yoki keyinroq qayta urinib ko'ring.";
-    });
-})();
-</script>
-
-
-<script>
-/* Profile menu: information is available from the first screen, but never stays fixed while scrolling. */
-(function(){
-  var btn=document.getElementById('profile-toggle'), card=document.getElementById('profile-card');
-  if(!btn||!card)return;
-  btn.addEventListener('click',function(e){
-    e.stopPropagation();
-    var open=card.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.profile-menu')){
-      card.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    }
-  });
-})();
-</script>
-
-<script>
-/* Automatic international results and transfer/news data. Uzbekistan football remains manual. */
-(function(){
-  var resultsEl=document.getElementById('auto-results-list');
-  var transfersEl=document.getElementById('auto-transfers-list');
-
-  function esc(s){
-    return String(s||'').replace(/[&<>"']/g,function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-
-  function loadResults(){
-    var urls=[
-      'https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard',
-      'https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard',
-      'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard'
-    ];
-    Promise.all(urls.map(function(url){
-      return fetch(url).then(function(r){if(!r.ok)throw new Error('http');return r.json();});
-    })).then(function(all){
-      var events=[];
-      all.forEach(function(data){(data.events||[]).forEach(function(e){events.push(e);});});
-      events.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
-      if(!events.length)throw new Error('empty');
-      resultsEl.innerHTML='';
-      events.slice(0,15).forEach(function(ev){
-        var c=ev.competitions&&ev.competitions[0], teams=(c&&c.competitors)||[];
-        var home=teams.find(function(x){return x.homeAway==='home';});
-        var away=teams.find(function(x){return x.homeAway==='away';});
-        var status=c&&c.status&&c.status.type?c.status.type.shortDetail:'';
-        var date=ev.date?new Date(ev.date).toLocaleDateString('uz-UZ',{day:'2-digit',month:'2-digit',year:'numeric'}):'';
-        var row=document.createElement('div');
-        row.className='news-item search-target';
-        row.innerHTML='<div><div class="date mono">'+esc(date)+'</div><div class="tag">Avtomatik</div></div>'+
-          '<div><h3>'+esc(home?home.team.displayName:'')+' '+esc(home&&home.score||'-')+' : '+esc(away&&away.score||'-')+' '+esc(away?away.team.displayName:'')+'</h3>'+
-          '<p>'+esc(status||'Natija')+'</p></div>';
-        resultsEl.appendChild(row);
-      });
-    }).catch(function(){
-      resultsEl.innerHTML='<div class="live-news-status">Natijalarni avtomatik yuklab bo‘lmadi. Manba vaqtincha javob bermayapti.</div>';
-    });
-  }
-
-  function loadTransfers(){
-    var feed='https://feeds.bbci.co.uk/sport/football/rss.xml';
-    var api='https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(feed);
-    fetch(api).then(function(r){if(!r.ok)throw new Error('rss');return r.json();}).then(function(data){
-      var items=(data.items||[]).filter(function(item){
-        return /transfer|sign|join|deal|move|contract|loan|agrees|bid/i.test(item.title||'');
-      }).slice(0,10);
-      if(!items.length)throw new Error('empty');
-      transfersEl.innerHTML='';
-      items.forEach(function(item){
-        var row=document.createElement('div'); row.className='news-item search-target';
-        var date=item.pubDate?new Date(item.pubDate).toLocaleDateString('uz-UZ',{day:'2-digit',month:'2-digit',year:'numeric'}):'';
-        var desc=(item.description||'').replace(/<[^>]*>/g,'').trim();
-        row.innerHTML='<div><div class="date mono">'+esc(date)+'</div><div class="tag">BBC Sport</div></div>'+
-          '<div><h3>'+esc(item.title)+'</h3><p>'+esc(desc)+'</p>'+
-          '<a href="'+esc(item.link)+'" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-size:12px">BBC Sport’da o‘qish →</a></div>';
-        transfersEl.appendChild(row);
-      });
-    }).catch(function(){
-      transfersEl.innerHTML='<div class="live-news-status">Transfer yangiliklarini avtomatik yuklab bo‘lmadi. BBC Sport manbasi vaqtincha javob bermayapti.</div>';
-    });
-  }
-
-  loadResults(); loadTransfers();
-  setInterval(loadResults,600000);
-  setInterval(loadTransfers,600000);
-})();
-</script>
-
-
-<script>
-(function(){
-  const btn=document.getElementById('uz-translate');
-  if(!btn)return;
-  let active=false;
-  const cache=new Map();
-
-  async function tr(text){
-    text=String(text||'').replace(/\s+/g,' ').trim();
-    if(!text || cache.has(text)) return cache.get(text)||text;
-    try{
-      const r=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(text)+'&langpair=en|uz');
-      const d=await r.json();
-      const t=d?.responseData?.translatedText;
-      if(t){cache.set(text,t);return t;}
-    }catch(e){}
-    return text;
-  }
-
-  async function translateNews(){
-    const roots=['auto-results-list','auto-transfers-list'].map(id=>document.getElementById(id)).filter(Boolean);
-    for(const root of roots){
-      for(const el of root.querySelectorAll('h3,p')){
-        if(!el.dataset.original) el.dataset.original=el.textContent;
-        el.textContent=await tr(el.dataset.original);
-      }
-    }
-  }
-
-  function restore(){
-    document.querySelectorAll('[data-original]').forEach(el=>el.textContent=el.dataset.original);
-  }
-
-  btn.onclick=async function(){
-    active=!active;
-    btn.classList.toggle('active',active);
-    btn.innerHTML=active?'UZ ✓ <span class="uz-label">O‘zbekcha</span>':'UZ <span class="uz-label">O‘zbekcha</span>';
-    if(active) await translateNews(); else restore();
-  };
-
-  const observer=new MutationObserver(()=>{if(active)translateNews()});
-  ['auto-results-list','auto-transfers-list'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)observer.observe(el,{childList:true,subtree:true});
-  });
-})();
-</script>
-
-
-<script>
-/* Uzbek is ON automatically when the site opens. */
-(function(){
-  function startUzbek(){
-    var btn=document.getElementById('uz-translate');
-    if(!btn || btn.dataset.autoStarted) return;
-    btn.dataset.autoStarted='1';
-    setTimeout(function(){
-      if(!btn.classList.contains('active')) btn.click();
-    },700);
-  }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',startUzbek);
-  }else{
-    startUzbek();
-  }
-})();
-</script>
 
 </body>
 </html>
