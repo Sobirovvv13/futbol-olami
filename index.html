@@ -14,7 +14,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E1A13">
 <link rel="canonical" href="https://sobirovvv13.github.io/futbol-olami/">
-<link rel="icon" href="https://em-content.zobj.net/source/microsoft-teams/363/soccer-ball_26bd-fe0f.png">
 
 <script type="application/ld+json">
 {
@@ -95,7 +94,7 @@
     letter-spacing:2px;
     display:flex; align-items:center; gap:8px;
   }
-  .logo .dot{ width:10px; height:10px; border-radius:50%; background:var(--gold); }
+  .logo .dot{ width:34px; height:34px; border-radius:50%; background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMwYjFiMTQiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyMyIgZmlsbD0iI2Y4ZjdmMSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMzIgMThsNyA1LTMgOGgtOGwtMy04eiIgZmlsbD0iIzExMSIvPjxwYXRoIGQ9Ik0yNSAyM2wtOCAxLTQgOCA2IDUgNy02bTE0LTggOCAxIDQgOC02IDUtNy02TTI4IDMxbC01IDcgMyA5IDYgMiA2LTIgMy05LTUtN00xOSAzN2wtNSA1bTMxLTUgNSA1TTI2IDQ3bC0yIDVtMTQtNSAyIDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=") center/contain no-repeat; display:inline-block; flex:0 0 34px; }
   nav ul{
     list-style:none; display:flex; gap:28px;
     font-size:14px; font-weight:500;
@@ -488,7 +487,27 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
   }
+
+  .logo-ball{width:38px!important;height:38px!important;min-width:38px!important;display:inline-flex!important;align-items:center;justify-content:center;margin-right:9px;vertical-align:middle}
+  .logo-ball img{width:100%!important;height:100%!important;display:block!important}
+  .lang-toggle{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:7px 10px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--chalk);cursor:pointer;font-family:'Space Mono',monospace;font-size:10px}
+  .lang-toggle:hover,.lang-toggle.active{border-color:var(--gold);color:var(--gold)}
+  .uz-label{font-size:9px;opacity:.7;margin-left:3px}
+  @media(max-width:720px){.lang-toggle{padding:7px 8px}.uz-label{display:none}}
+
+  .logo-ball{
+    width:38px!important;height:38px!important;min-width:38px!important;
+    display:inline-flex!important;align-items:center;justify-content:center;
+    margin-right:8px;vertical-align:middle;
+    font-family:"Segoe UI Emoji","Noto Color Emoji",Arial,sans-serif!important;
+    font-size:30px!important;line-height:1!important;
+    background:transparent!important;border:0!important;
+  }
+
 </style>
+  <meta name="theme-color" content="#0b1b14">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEyIiBmaWxsPSIjMGIxYjE0Ii8+Cjx0ZXh0IHg9IjMyIiB5PSI0OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsLFNlZ29lIFVJIEVtb2ppLE5vdG8gQ29sb3IgRW1vamksc2Fucy1zZXJpZiI+4pq9PC90ZXh0Pgo8L3N2Zz4=">
+<link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEyIiBmaWxsPSIjMGIxYjE0Ii8+Cjx0ZXh0IHg9IjMyIiB5PSI0OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsLFNlZ29lIFVJIEVtb2ppLE5vdG8gQ29sb3IgRW1vamksc2Fucy1zZXJpZiI+4pq9PC90ZXh0Pgo8L3N2Zz4=">
 </head>
 <body>
 
@@ -515,6 +534,7 @@
       <li><a href="#transferlar">Transferlar</a></li>
       <li><a href="#rekordlar">Rekordlar</a></li>
     </ul>
+    <button class="lang-toggle" id="uz-translate" type="button" title="O'zbekcha — avtomatik tarjima">UZ <span class="uz-label">O'zbekcha</span></button>
     <div class="profile-menu">
       <button class="profile-toggle" id="profile-toggle" type="button" aria-expanded="false" aria-controls="profile-card">
         <span class="avatar">M</span><span class="label">Men haqimda</span>
@@ -527,18 +547,6 @@
     </div>
   </nav>
 </header>
-
-    <div class="profile-menu">
-      <button class="profile-toggle" id="profile-toggle" type="button" aria-expanded="false" aria-controls="profile-card">
-        <span class="avatar">M</span><span class="label">Men haqimda</span>
-      </button>
-      <div class="profile-card" id="profile-card">
-        <span class="name">Sobirov Muhammadali Obid og'li</span>
-        <span class="dob">13.09.2008</span>
-        <a href="https://instagram.com/Sobirovvv13_" target="_blank" rel="noopener noreferrer">Instagram: @Sobirovvv13_</a>
-      </div>
-    </div>
-
 <section class="hero">
   <div class="wrap">
     <div class="scoreboard mono"><span class="live"></span> JONLI QO'LLANMA — YANGILANIB TURADI</div>
@@ -1052,6 +1060,75 @@
   loadResults(); loadTransfers();
   setInterval(loadResults,600000);
   setInterval(loadTransfers,600000);
+})();
+</script>
+
+
+<script>
+(function(){
+  const btn=document.getElementById('uz-translate');
+  if(!btn)return;
+  let active=false;
+  const cache=new Map();
+
+  async function tr(text){
+    text=String(text||'').replace(/\s+/g,' ').trim();
+    if(!text || cache.has(text)) return cache.get(text)||text;
+    try{
+      const r=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(text)+'&langpair=en|uz');
+      const d=await r.json();
+      const t=d?.responseData?.translatedText;
+      if(t){cache.set(text,t);return t;}
+    }catch(e){}
+    return text;
+  }
+
+  async function translateNews(){
+    const roots=['auto-results-list','auto-transfers-list'].map(id=>document.getElementById(id)).filter(Boolean);
+    for(const root of roots){
+      for(const el of root.querySelectorAll('h3,p')){
+        if(!el.dataset.original) el.dataset.original=el.textContent;
+        el.textContent=await tr(el.dataset.original);
+      }
+    }
+  }
+
+  function restore(){
+    document.querySelectorAll('[data-original]').forEach(el=>el.textContent=el.dataset.original);
+  }
+
+  btn.onclick=async function(){
+    active=!active;
+    btn.classList.toggle('active',active);
+    btn.innerHTML=active?'UZ ✓ <span class="uz-label">O‘zbekcha</span>':'UZ <span class="uz-label">O‘zbekcha</span>';
+    if(active) await translateNews(); else restore();
+  };
+
+  const observer=new MutationObserver(()=>{if(active)translateNews()});
+  ['auto-results-list','auto-transfers-list'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)observer.observe(el,{childList:true,subtree:true});
+  });
+})();
+</script>
+
+
+<script>
+/* Uzbek is ON automatically when the site opens. */
+(function(){
+  function startUzbek(){
+    var btn=document.getElementById('uz-translate');
+    if(!btn || btn.dataset.autoStarted) return;
+    btn.dataset.autoStarted='1';
+    setTimeout(function(){
+      if(!btn.classList.contains('active')) btn.click();
+    },700);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',startUzbek);
+  }else{
+    startUzbek();
+  }
 })();
 </script>
 
