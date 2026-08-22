@@ -501,6 +501,136 @@
     .league-row > div:nth-child(3){ display:none; }
   }
 
+  /* CLUBS */
+  .club-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:28px;
+    margin-top:20px;
+  }
+  .club-card .club-head{
+    display:flex; align-items:baseline; gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .club-card h3{ font-size:28px; letter-spacing:0.5px; }
+  .club-card .founded{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+    border:1px solid rgba(212,160,23,0.35);
+    border-radius:12px;
+    padding:3px 10px;
+  }
+  .club-card .club-section-label{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--pitch-light);
+    margin-top:16px;
+    margin-bottom:6px;
+  }
+  .club-card p{ font-size:14px; color:rgba(250,248,242,0.75); }
+
+  /* AI ASSISTANT WIDGET */
+  .ai-fab{
+    position:fixed;
+    bottom:20px; right:20px;
+    z-index:80;
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--gold);
+    border:none;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 16px rgba(0,0,0,0.4);
+  }
+  .ai-fab svg{ width:24px; height:24px; }
+  .ai-panel{
+    position:fixed;
+    bottom:84px; right:20px;
+    z-index:80;
+    width:320px;
+    max-width:calc(100vw - 32px);
+    max-height:440px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.5);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .ai-panel.open{ display:flex; }
+  .ai-panel-head{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:8px;
+  }
+  .ai-panel-head .dot-live{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--pitch-light);
+  }
+  .ai-panel-head h4{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:16px; letter-spacing:0.5px;
+  }
+  .ai-panel-sub{
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    color:rgba(250,248,242,0.4);
+    padding:0 16px 10px;
+  }
+  .ai-messages{
+    flex:1;
+    overflow-y:auto;
+    padding:12px 16px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .ai-msg{
+    font-size:13px;
+    line-height:1.5;
+    padding:8px 12px;
+    border-radius:10px;
+    max-width:85%;
+  }
+  .ai-msg.bot{
+    background:rgba(212,160,23,0.1);
+    color:var(--chalk);
+    align-self:flex-start;
+  }
+  .ai-msg.user{
+    background:var(--pitch);
+    color:var(--chalk);
+    align-self:flex-end;
+  }
+  .ai-input-row{
+    display:flex; gap:8px;
+    padding:10px;
+    border-top:1px solid var(--line);
+  }
+  .ai-input-row input{
+    flex:1;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:8px 12px;
+    color:var(--chalk);
+    font-size:13px;
+    outline:none;
+  }
+  .ai-input-row button{
+    background:var(--gold);
+    border:none;
+    border-radius:16px;
+    padding:0 14px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    cursor:pointer;
+  }
+
   /* RECORDS */
   .records{
     margin-top:48px;
@@ -561,6 +691,7 @@
       <li><a href="#yangiliklar">Yangiliklar</a></li>
       <li><a href="#qoidalar">Qoidalar</a></li>
       <li><a href="#ligalar">Ligalar</a></li>
+      <li><a href="#klublar">Klublar</a></li>
       <li><a href="#afsonalar">Afsonalar</a></li>
       <li><a href="#natijalar">Natijalar</a></li>
       <li><a href="#transferlar">Transferlar</a></li>
@@ -577,7 +708,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       @Sobirovvv13_
     </a>
-    <a href="https://t.me/sobirovvv.13" target="_blank" rel="noopener noreferrer" style="margin-top:4px;">
+    <a href="https://t.me/sobirovvv13" target="_blank" rel="noopener noreferrer" style="margin-top:4px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>
       sobirovvv.13
     </a>
@@ -768,6 +899,82 @@
         <div></div>
         <div class="teams-count mono">14 jamoa</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<section id="klublar">
+  <div class="wrap">
+    <div class="eyebrow">Klublar</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Dunyoning eng mashhur klublari</h2>
+    <div class="news-updated">Har bir klub: tashkil topgan yili, tarixi, mashhur futbolchilari va yirik transferlari</div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Real Madrid</h3><span class="founded mono">1902-yil</span></div>
+      <p>Ispaniyaning Madrid shahrida tashkil topgan, Yevropa Chempionlar Ligasi tarixida eng ko'p (15 marta) g'olib chiqqan klub. "Galakticos" davri (2000-yillar) va Zidane rahbarligidagi uch yillik Chempionlar Ligasi ketma-ket g'alabalari (2016-2018) bilan mashhur.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Alfredo Di Stefano, Ferenc Puskas, Zinedine Zidane, Cristiano Ronaldo, Karim Benzema, Luka Modrich</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Cristiano Ronaldo — Manchester Yunayteddan, 2009-yil, ~94 million yevro (o'sha davr rekordi). Eden Azar — Chelsidan, 2019-yil, ~100 million yevro. Kilian Mbappe — PSJdan bepul, 2024-yil.</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Cristiano Ronaldo — Yuventusga, 2018-yil, ~100 million yevro.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Barselona</h3><span class="founded mono">1899-yil</span></div>
+      <p>Shveytsariyalik Joan Gamper tomonidan asos solingan, "La Masia" akademiyasi orqali dunyoga ko'plab yulduzlarni yetkazib bergan. Pep Gvardiola davridagi "tiki-taka" o'yin uslubi bilan futbol tarixiga katta iz qoldirgan.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Yohan Kroyf, Diego Maradona, Ronaldinyo, Lionel Messi, Xavi, Andres Iniesta</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Neymar — Santosdan, 2013-yil, ~57 million yevro. Filipp Kutinyo — Liverpuldan, 2018-yil, ~160 million yevro. Antuan Grizman — Atletiko Madriddan, 2019-yil, ~120 million yevro.</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Neymar — PSJga, 2017-yil, 222 million yevro (bugungacha saqlanib kelayotgan jahon rekordi).</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Arsenal</h3><span class="founded mono">1886-yil</span></div>
+      <p>London shahrida ishchilar jamoasi sifatida tashkil topgan. Arsen Venger rahbarligidagi 2003/04 mavsumida butun chempionatni mag'lubiyatsiz yakunlab, "Yengilmaslar" (Invincibles) nomini olgan.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Tyerri Anri, Dennis Bergkamp, Patrik Vyera, Toni Adams</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Deklan Rays — Vest Xemdan, 2023-yil, ~105 million funt sterling (klub rekordi). Nikolas Pepe — Lilldan, 2019-yil, ~80 million yevro.</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Aleksis Sanches — Manchester Yunaytedga (almashinuv bitimi), 2018-yil.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Manchester Siti</h3><span class="founded mono">1880-yil</span></div>
+      <p>Dastlab "Sent-Marks" nomi bilan tashkil topgan. 2008-yilda Abu-Dabi investorlari klubni sotib olgandan so'ng, jahon futbolining yetakchi kuchlaridan biriga aylandi. Pep Gvardiola rahbarligida 2023-yilda birinchi marta "treble" (uch trofey) qo'lga kiritdi.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Sergio Aguero, David Silva, Kevin De Breyne, Erling Holand</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Jek Grilish — Aston Villadan, 2021-yil, ~100 million funt sterling. Erling Holand — Borussiya Dortmunddan, 2022-yil, ~51 million funt sterling.</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Katta miqyosdagi sotuvlar tarixi nisbatan kam — klub ko'proq yulduz futbolchilarni jalb qilish siyosatini yuritadi.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Manchester Yunayted</h3><span class="founded mono">1878-yil</span></div>
+      <p>Dastlab temir yo'l ishchilari jamoasi ("Nyuton Xit") sifatida tashkil topgan. Ser Aleks Fergyuson davri (1986-2013) — 13 marta Angliya chempioni bo'lgan, jumladan 1999-yilgi "treble" bilan yakunlangan tarixiy davr.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Jorj Best, Bobbi Charlton, Erik Kantona, Rayan Gigz, Cristiano Ronaldo, Ueyn Runi</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Pol Pogba — Yuventusdan, 2016-yil, ~105 million yevro (o'sha davr jahon rekordi). Antoni — Ayaksdan, 2022-yil, ~95 million yevro.</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Cristiano Ronaldo — Real Madridga, 2009-yil, ~94 million yevro (o'sha davr jahon rekordi). Devid Bekxem — Real Madridga, 2003-yil.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Atletiko Madrid</h3><span class="founded mono">1903-yil</span></div>
+      <p>Madridning "ikkinchi" yirik klubi, Diego Simeone rahbarligida (2011-yildan) mudofaa mustahkamligi va jangovarlik ruhi bilan tanilgan. 2014 va 2021-yillarda La Liga chempioni bo'lgan, ikki marta Chempionlar Ligasi finalida ishtirok etgan.</p>
+      <div class="club-section-label">Mashhur futbolchilari</div>
+      <p>Luis Aragones, Fernando Torres, Diego Forlan, Antuan Grizman</p>
+      <div class="club-section-label">Yirik transferlar (kelgan)</div>
+      <p>Joao Feliks — Benfikadan, 2019-yil, ~126 million yevro (klub rekordi).</p>
+      <div class="club-section-label">Yirik transferlar (ketgan)</div>
+      <p>Antuan Grizman — Barselonaga, 2019-yil, ~120 million yevro. Fernando Torres — Chelsiga, 2011-yil, ~50 million funt sterling (o'sha davr Angliya rekordi).</p>
     </div>
   </div>
 </section>
@@ -1086,6 +1293,110 @@
     .catch(function(){
       statusEl.textContent = "Jonli oqimni yuklab bo'lmadi. Iltimos internetga ulanishni tekshiring yoki keyinroq qayta urinib ko'ring.";
     });
+})();
+</script>
+
+<button class="ai-fab" id="ai-fab" type="button" aria-label="Futbol yordamchisi">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0E1A13" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</button>
+
+<div class="ai-panel" id="ai-panel">
+  <div class="ai-panel-head">
+    <span class="dot-live"></span>
+    <h4>Futbol Yordamchisi</h4>
+  </div>
+  <div class="ai-panel-sub">Sayt ma'lumotlariga asoslangan oddiy yordamchi</div>
+  <div class="ai-messages" id="ai-messages">
+    <div class="ai-msg bot">Salom! Men futbol bo'yicha savollaringizga saytdagi ma'lumotlar asosida javob beraman. Masalan: "Real Madrid qachon tashkil topgan?" yoki "Ofsayd nima?"</div>
+  </div>
+  <div class="ai-input-row">
+    <input type="text" id="ai-input" placeholder="Savolingizni yozing..." autocomplete="off">
+    <button id="ai-send" type="button">Yuborish</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var fab = document.getElementById('ai-fab');
+  var panel = document.getElementById('ai-panel');
+  var messages = document.getElementById('ai-messages');
+  var input = document.getElementById('ai-input');
+  var sendBtn = document.getElementById('ai-send');
+
+  fab.addEventListener('click', function(){
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+
+  var canned = [
+    { keys:['ofsayd'], answer:"Ofsayd — hujumchi o'yinchi to'p uzatilgan payt raqib darvozasiga oxirgi himoyachidan yaqinroq turgan holat. Bunday holatda hakam o'yinni to'xtatadi." },
+    { keys:['penalti','11 metr'], answer:"Penalti — jarima maydonchasida sodir bo'lgan qo'pol xatolik uchun tayinlanadigan 11 metrlik jarima zarbasi." },
+    { keys:['var'], answer:"VAR (Video Yordamchi Hakam) — gollar, penaltilar va qizil kartalar kabi muhim holatlarni qayta ko'rib chiqishda hakamlarga yordam beruvchi video tizim." },
+    { keys:['necha daqiqa','oyin vaqti','o\'yin vaqti'], answer:"Futbol o'yini ikki yarim taymdan iborat, har biri 45 daqiqadan — jami 90 daqiqa. Kerak bo'lganda qo'shimcha vaqt va penalti seriyasi qo'llaniladi." },
+    { keys:['nechta oyinchi','11 oyinchi','o\'yinchi soni'], answer:"Har bir jamoa maydonda 11 nafar o'yinchi bilan chiqadi, ulardan biri darvozabon." },
+    { keys:['qizil karta','sariq karta'], answer:"Sariq karta — ogohlantirish. Ikkinchi sariq karta avtomatik ravishda qizil kartaga aylanadi. Qizil karta o'yinchini maydondan chetlatadi." }
+  ];
+
+  function findAnswer(query){
+    var q = query.toLowerCase();
+
+    for (var i = 0; i < canned.length; i++){
+      for (var j = 0; j < canned[i].keys.length; j++){
+        if (q.indexOf(canned[i].keys[j]) !== -1){
+          return canned[i].answer;
+        }
+      }
+    }
+
+    var targets = document.querySelectorAll('.search-target');
+    var best = null;
+    var bestScore = 0;
+    var stopWords = ['qachon','kim','nima','qanday','necha','haqida','bormi','edi','bo\'lgan','tashkil','topgan','?'];
+    var words = q.split(/\s+/).filter(function(w){ return w.length > 2 && stopWords.indexOf(w) === -1; });
+
+    targets.forEach(function(el){
+      var text = el.textContent.toLowerCase();
+      var score = 0;
+      words.forEach(function(w){
+        if (text.indexOf(w) !== -1) score++;
+      });
+      if (score > bestScore){
+        bestScore = score;
+        best = el;
+      }
+    });
+
+    if (best && bestScore > 0){
+      var heading = best.querySelector('h3');
+      var snippet = best.textContent.replace(/\s+/g,' ').trim().slice(0, 260);
+      return (heading ? heading.textContent.trim() + ': ' : '') + snippet + '...';
+    }
+
+    return "Kechirasiz, bu savolga aniq javob topa olmadim. Saytdagi Tarix, Qoidalar, Klublar, Afsonalar yoki Rekordlar bo'limlarini ko'rib chiqishingiz mumkin, yoki savolni boshqacharoq shaklda yozib ko'ring.";
+  }
+
+  function addMessage(text, cls){
+    var msg = document.createElement('div');
+    msg.className = 'ai-msg ' + cls;
+    msg.textContent = text;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function handleSend(){
+    var q = input.value.trim();
+    if (!q) return;
+    addMessage(q, 'user');
+    input.value = '';
+    setTimeout(function(){
+      addMessage(findAnswer(q), 'bot');
+    }, 300);
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') handleSend();
+  });
 })();
 </script>
 
