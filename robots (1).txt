@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sobirovvv13.github.io/futbol-olami/sitemap.xml
