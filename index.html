@@ -501,6 +501,309 @@
     .league-row > div:nth-child(3){ display:none; }
   }
 
+  /* FIXTURES / DAILY SCHEDULE */
+  .fixtures-card{
+    margin-top:40px;
+    background:#141F18;
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .fixtures-card-head{
+    padding:28px 24px 18px;
+    text-align:center;
+  }
+  .fixtures-card-head h3{
+    font-size:clamp(20px,3.6vw,28px);
+    letter-spacing:1px;
+    line-height:1.15;
+  }
+  .fixtures-card-head .fx-date{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:2px;
+    color:rgba(250,248,242,0.4);
+    text-transform:uppercase;
+  }
+  .fixtures-list{ display:flex; flex-direction:column; padding:8px 0 20px; }
+  .fx-row{
+    display:grid;
+    grid-template-columns:1fr auto 100px auto 1fr;
+    align-items:center;
+    padding:12px 28px;
+    gap:14px;
+  }
+  .fx-row:hover{ background:rgba(212,160,23,0.05); }
+  .fx-team{
+    font-size:14px; font-weight:700;
+    letter-spacing:0.3px;
+    text-transform:uppercase;
+    color:var(--chalk);
+  }
+  .fx-team.home{ text-align:right; }
+  .fx-team.away{ text-align:left; }
+  .fx-badge{
+    width:30px; height:30px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:12px;
+    color:#fff;
+    flex-shrink:0;
+  }
+  .fx-mid{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+  }
+  .fx-league-dot{
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--gold);
+    opacity:0.85;
+  }
+  .fx-time{
+    font-family:'Space Mono', monospace;
+    font-size:14px; font-weight:700;
+    color:var(--ink);
+    background:var(--chalk);
+    border-radius:999px;
+    padding:6px 16px;
+    min-width:64px;
+    text-align:center;
+  }
+  .fx-score{
+    font-family:'Space Mono', monospace;
+    font-size:15px; font-weight:700;
+    color:var(--ink);
+    background:var(--chalk);
+    border-radius:999px;
+    padding:6px 16px;
+    min-width:64px;
+    text-align:center;
+  }
+  .fx-league{ display:none; }
+  .fx-ft-badge{
+    font-family:'Space Mono', monospace;
+    font-size:9px;
+    letter-spacing:1px;
+    color:rgba(250,248,242,0.35);
+  }
+  .fixtures-status{
+    padding:32px 24px;
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    color:rgba(250,248,242,0.5);
+  }
+  .fixtures-foot{
+    padding:14px 24px;
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    color:rgba(250,248,242,0.3);
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:560px){
+    .fx-row{ grid-template-columns:1fr auto 76px auto 1fr; padding:10px 14px; gap:8px; }
+    .fx-team{ font-size:11px; }
+    .fx-time, .fx-score{ font-size:12px; padding:5px 10px; min-width:48px; }
+    .fx-badge{ width:24px; height:24px; font-size:10px; }
+  }
+
+  /* FAVORITE TEAM */
+  .fav-team-box{
+    margin-top:32px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 24px;
+  }
+  .fav-team-row{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  }
+  .fav-team-row input{
+    flex:1; min-width:180px;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px 14px;
+    color:var(--chalk);
+    font-size:14px;
+    outline:none;
+  }
+  .fav-team-row input:focus{ border-color:var(--gold); }
+  .fav-btn{
+    background:var(--gold);
+    border:none;
+    border-radius:8px;
+    padding:10px 18px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .fav-btn.secondary{
+    background:transparent;
+    border:1px solid var(--line);
+    color:rgba(250,248,242,0.6);
+  }
+  .fav-result{
+    margin-top:16px;
+    font-size:14px;
+    color:rgba(250,248,242,0.75);
+  }
+  .fav-result .fav-team-name{ color:var(--gold); font-weight:700; }
+  .fav-highlight-row{
+    margin-top:14px;
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    background:var(--ink);
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:16px;
+  }
+
+  /* QUIZ */
+  .quiz-card{
+    margin-top:40px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px;
+    max-width:640px;
+  }
+  .quiz-progress{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    color:rgba(250,248,242,0.45);
+    margin-bottom:14px;
+  }
+  .quiz-question{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:18px;
+    line-height:1.4;
+  }
+  .quiz-options{ display:flex; flex-direction:column; gap:10px; }
+  .quiz-option{
+    text-align:left;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:12px 16px;
+    color:var(--chalk);
+    font-size:14px;
+    cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .quiz-option:hover{ border-color:var(--gold); }
+  .quiz-option.correct{ background:rgba(46,143,91,0.25); border-color:var(--pitch-light); }
+  .quiz-option.incorrect{ background:rgba(193,39,45,0.2); border-color:var(--red); }
+  .quiz-option:disabled{ cursor:default; }
+  .quiz-explain{
+    margin-top:14px;
+    font-size:13px;
+    color:rgba(250,248,242,0.65);
+    display:none;
+  }
+  .quiz-next-btn{
+    margin-top:18px;
+    background:var(--gold);
+    border:none;
+    border-radius:8px;
+    padding:10px 20px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--ink);
+    cursor:pointer;
+    display:none;
+  }
+  .quiz-score-summary{
+    text-align:center;
+    padding:20px 0;
+  }
+  .quiz-score-summary .big-score{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:56px;
+    color:var(--gold);
+  }
+  .quiz-restart-btn{
+    margin-top:14px;
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    border-radius:8px;
+    padding:8px 18px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    cursor:pointer;
+  }
+
+  /* PREDICTIONS */
+  .pred-total-box{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--card);
+    border:1px solid var(--gold);
+    border-radius:20px;
+    padding:8px 18px;
+    margin-top:16px;
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+  }
+  .pred-total-box .big{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .pred-row{
+    display:grid;
+    grid-template-columns:1fr auto 90px auto 1fr auto;
+    align-items:center;
+    gap:10px;
+    padding:14px 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .pred-row:last-child{ border-bottom:none; }
+  .pred-team{ font-size:13px; font-weight:600; }
+  .pred-team.home{ text-align:right; }
+  .pred-inputs{
+    display:flex; align-items:center; gap:6px; justify-content:center;
+  }
+  .pred-inputs input{
+    width:36px; text-align:center;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--chalk);
+    font-family:'Space Mono', monospace;
+    font-size:14px;
+    padding:6px 0;
+  }
+  .pred-save-btn{
+    background:var(--pitch);
+    border:1px solid var(--pitch-light);
+    border-radius:6px;
+    padding:6px 12px;
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    color:var(--chalk);
+    cursor:pointer;
+  }
+  .pred-status{
+    font-family:'Space Mono', monospace;
+    font-size:9px;
+    color:var(--gold);
+    text-align:center;
+    margin-top:4px;
+  }
+  @media (max-width:600px){
+    .pred-row{ grid-template-columns:1fr auto 70px auto 1fr; padding:10px 12px; gap:6px; }
+    .pred-team{ font-size:11px; }
+    .pred-save-btn{ display:none; }
+  }
+
   /* CLUBS */
   .club-card{
     background:var(--card);
@@ -692,9 +995,13 @@
       <li><a href="#qoidalar">Qoidalar</a></li>
       <li><a href="#ligalar">Ligalar</a></li>
       <li><a href="#klublar">Klublar</a></li>
+      <li><a href="#ozbekiston">O'zbekiston</a></li>
       <li><a href="#afsonalar">Afsonalar</a></li>
+      <li><a href="#jadval">Jadval</a></li>
       <li><a href="#natijalar">Natijalar</a></li>
       <li><a href="#transferlar">Transferlar</a></li>
+      <li><a href="#viktorina">Viktorina</a></li>
+      <li><a href="#bashoratlar">Bashoratlar</a></li>
       <li><a href="#rekordlar">Rekordlar</a></li>
     </ul>
   </nav>
@@ -981,6 +1288,52 @@
 
 <div class="pitch-divider"></div>
 
+<section id="ozbekiston">
+  <div class="wrap">
+    <div class="eyebrow">O'zbekiston futboli</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">O'zbekiston — futbol tarixidagi eng katta yutuq</h2>
+
+    <div class="club-card search-target" style="border-color:var(--gold);">
+      <div class="club-head"><h3>2026 Jahon chempionati — tarixiy yo'llanma</h3><span class="founded mono">Ilk bor</span></div>
+      <p>O'zbekiston milliy terma jamoasi 2026-yilgi FIFA Jahon chempionatiga birinchi marta yo'llanma qo'lga kiritdi — bu o'zbek futboli tarixidagi eng katta yutuq hisoblanadi. Jamoaga jahon chempioni (2006), afsonaviy italiyalik himoyachi Fabio Kannavaro bosh murabbiylik qilmoqda. Terma jamoa final bosqichida "K" guruhida Portugaliya, Kolumbiya va Kongo Demokratik Respublikasi bilan bahslashadi. Jahon chempionati 2026-yil 11-iyundan 19-iyulgacha AQSH, Kanada va Meksikada o'tkaziladi.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Terma jamoa tarixi</h3><span class="founded mono">1994-yildan</span></div>
+      <p>O'zbekiston Futbol Federatsiyasi 1994-yilda Osiyo Futbol Konfederatsiyasi va FIFA tomonidan rasman qabul qilingan. O'zbekiston terma jamoasi Markaziy Osiyo davlatlari (Qozog'iston, Qirg'iziston, Tojikiston, Turkmaniston) orasida eng kuchlisi hisoblanadi. 1994-yilgi Osiyo O'yinlarida oltin medal qozongan, 2011-yilgi Osiyo Kubogida yarim finalgacha yetib borgan.</p>
+      <div class="club-section-label">Hozirgi bosh murabbiy</div>
+      <p>Fabio Kannavaro (Italiya) — 2006-yilgi Jahon chempioni, Oltin to'p sohibi (2006)</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Paxtakor</h3><span class="founded mono">1956-yil</span></div>
+      <p>Toshkent shahridagi eng mashhur va eng ko'p muxlisga ega klub, O'zbekiston Superligasining eng ko'p chempionlik unvoniga ega jamoasi. Sovet davrida ham yuqori diviziyada muntazam ishtirok etgan yagona O'rta Osiyo klublaridan biri.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Neftchi Farg'ona</h3><span class="founded mono">1957-yil</span></div>
+      <p>Farg'ona shahridan bo'lgan klub, so'nggi yillarda Superligada barqaror natijalar ko'rsatib, Paxtakor bilan chempionlik uchun raqobatlashmoqda.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Bunyodkor</h3><span class="founded mono">2005-yil</span></div>
+      <p>Toshkentda tashkil topgan, 2008-2012-yillarda jahon miqyosidagi yulduz futbolchi va murabbiylarni (jumladan Luiz Felipe Skolari, Rivaldo, Zico) jalb qilgani bilan mashhur bo'lgan klub.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Nasaf Qarshi</h3><span class="founded mono">1974-yil</span></div>
+      <p>Qarshi shahridan bo'lgan klub, 2011 va 2021-yillarda O'zbekiston chempioni bo'lgan, muntazam ravishda AFC Champions League turnirida O'zbekistonni vakillik qilib kelmoqda.</p>
+    </div>
+
+    <div class="club-card search-target">
+      <div class="club-head"><h3>Milliy Stadion</h3><span class="founded mono">Toshkent</span></div>
+      <p>O'zbekiston terma jamoasining asosiy maydoni, poytaxt Toshkentda joylashgan. Xalqaro uchrashuvlar va Superliga o'yinlari shu yerda o'tkaziladi.</p>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
 <section id="afsonalar">
   <div class="wrap">
     <div class="eyebrow">Afsonalar</div>
@@ -1032,6 +1385,50 @@
         <h3>Vinicius Junior</h3>
         <p>Real Madridning chap qanot hujumchisi, 2024-yilda FIFA "The Best" mukofoti sohibi. 2025/26 mavsumida La Liga va Chempionlar Ligasida jami 30 dan ortiq gol+ passga hissa qo'shdi.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<section id="jadval">
+  <div class="wrap">
+    <div class="eyebrow">Bugungi jadval</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Bugungi o'yinlar</h2>
+    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px;">Dunyo bo'ylab bugun bo'lib o'tadigan futbol uchrashuvlari &mdash; avtomatik yuklanadi.</p>
+
+    <div class="fixtures-card">
+      <div class="fixtures-card-head">
+        <h3 id="fx-title">BUGUNGI<br>UCHRASHUVLAR JADVALI</h3>
+        <div class="fx-date mono" id="fx-date-label">&hellip;</div>
+      </div>
+      <div class="fixtures-list" id="fx-list">
+        <div class="fixtures-status" id="fx-status">O'yinlar yuklanmoqda&hellip;</div>
+      </div>
+      <div class="fixtures-foot">Manba: TheSportsDB &middot; vaqtlar UTC bo'yicha, mahalliy vaqtga moslashtiring</div>
+    </div>
+
+    <div class="fixtures-card" style="margin-top:28px;">
+      <div class="fixtures-card-head results-head">
+        <h3>BUGUNGI MARKAZIY<br>UCHRASHUVLAR NATIJASI</h3>
+        <div class="fx-date mono" id="fr-date-label">&hellip;</div>
+      </div>
+      <div class="fixtures-list" id="fr-list">
+        <div class="fixtures-status" id="fr-status">Natijalar tekshirilmoqda&hellip;</div>
+      </div>
+      <div class="fixtures-foot">Har bir o'yin tugagach avtomatik yangilanadi &middot; sahifani yangilab turing</div>
+    </div>
+
+    <div class="fav-team-box">
+      <div class="eyebrow" style="margin-bottom:12px;">Shaxsiylashtirish</div>
+      <h3 style="font-size:22px; margin-bottom:12px;">Sevimli jamoangizni tanlang</h3>
+      <div class="fav-team-row">
+        <input type="text" id="fav-team-input" placeholder="Masalan: Real Madrid, Liverpul, Paxtakor..." list="fav-team-list">
+        <datalist id="fav-team-list"></datalist>
+        <button class="fav-btn" id="fav-save-btn" type="button">Saqlash</button>
+        <button class="fav-btn secondary" id="fav-clear-btn" type="button">Tozalash</button>
+      </div>
+      <div class="fav-result" id="fav-result"></div>
     </div>
   </div>
 </section>
@@ -1107,6 +1504,44 @@
       </div>
     </div>
     <div class="news-note">Eslatma: yuqoridagi kartalar qo'lda tekshirilib kiritilgan. Pastdagi jonli oqim (Yangiliklar bo'limida) esa avtomatik yangilanadi.</div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<section id="viktorina">
+  <div class="wrap">
+    <div class="eyebrow">Bilim sinovi</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Haftalik viktorina</h2>
+    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px; max-width:560px;">Saytdagi ma'lumotlar asosida futbol bilimingizni sinab ko'ring. Har hafta savollar avtomatik yangilanadi.</p>
+
+    <div class="quiz-card" id="quiz-card">
+      <div class="quiz-progress" id="quiz-progress">Savol 1 / 5</div>
+      <div class="quiz-question" id="quiz-question">Yuklanmoqda&hellip;</div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-explain" id="quiz-explain"></div>
+      <button class="quiz-next-btn" id="quiz-next-btn" type="button">Keyingi savol</button>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<section id="bashoratlar">
+  <div class="wrap">
+    <div class="eyebrow">O'yin</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Bashorat qiling</h2>
+    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px; max-width:600px;">Bugungi o'yinlar uchun hisobni bashorat qiling. To'g'ri hisob — 3 ball, faqat g'olibni to'g'ri topsangiz — 1 ball. Bu shaxsiy hisoblagich bo'lib, faqat sizning brauzeringizda saqlanadi &mdash; boshqa foydalanuvchilar bilan umumiy reyting emas.</p>
+    <div class="pred-total-box">
+      <span>Sizning umumiy balingiz:</span>
+      <span class="big" id="pred-total-score">0</span>
+    </div>
+
+    <div class="fixtures-card" style="margin-top:20px;">
+      <div class="fixtures-list" id="pred-list">
+        <div class="fixtures-status" id="pred-status-msg">Bugungi o'yinlar yuklanmoqda&hellip;</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1223,18 +1658,42 @@
   var showOriginal = false;
   var newsItems = [];
 
-  function translateText(text){
+  function translateViaMyMemory(text){
     var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=en|uz';
     return fetch(url)
       .then(function(res){ return res.json(); })
       .then(function(data){
         if (data && data.responseData && data.responseData.translatedText){
-          return data.responseData.translatedText;
+          var t = data.responseData.translatedText;
+          if (t.indexOf('MYMEMORY WARNING') !== -1) return null;
+          if (t.trim().toLowerCase() === text.trim().toLowerCase()) return null;
+          return t;
         }
-        return text;
+        return null;
       })
-      .catch(function(){ return text; });
+      .catch(function(){ return null; });
   }
+
+  function translateViaLingva(text){
+    var url = 'https://lingva.ml/api/v1/en/uz/' + encodeURIComponent(text);
+    return fetch(url)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data && data.translation) return data.translation;
+        return null;
+      })
+      .catch(function(){ return null; });
+  }
+
+  function translateText(text){
+    return translateViaMyMemory(text).then(function(result){
+      if (result) return result;
+      return translateViaLingva(text).then(function(result2){
+        return result2 || text;
+      });
+    });
+  }
+  window.translateText = translateText;
 
   function render(){
     listEl.innerHTML = '';
@@ -1305,9 +1764,9 @@
     <span class="dot-live"></span>
     <h4>Futbol Yordamchisi</h4>
   </div>
-  <div class="ai-panel-sub">Sayt ma'lumotlariga asoslangan oddiy yordamchi</div>
+  <div class="ai-panel-sub">Avval saytdan, topilmasa Vikipediyadan (manba havolasi bilan) javob beradi</div>
   <div class="ai-messages" id="ai-messages">
-    <div class="ai-msg bot">Salom! Men futbol bo'yicha savollaringizga saytdagi ma'lumotlar asosida javob beraman. Masalan: "Real Madrid qachon tashkil topgan?" yoki "Ofsayd nima?"</div>
+    <div class="ai-msg bot">Salom! Futbol bo'yicha istalgan savolingizni bering — avval saytimizdan, topilmasa ishonchli tashqi manbadan qidirib, o'zbek tilida javob beraman.</div>
   </div>
   <div class="ai-input-row">
     <input type="text" id="ai-input" placeholder="Savolingizni yozing..." autocomplete="off">
@@ -1337,7 +1796,19 @@
     { keys:['qizil karta','sariq karta'], answer:"Sariq karta — ogohlantirish. Ikkinchi sariq karta avtomatik ravishda qizil kartaga aylanadi. Qizil karta o'yinchini maydondan chetlatadi." }
   ];
 
-  function findAnswer(query){
+  var aliasMap = {
+    'mu': 'manchester yunayted', 'man utd': 'manchester yunayted', 'man u': 'manchester yunayted',
+    'siti': 'manchester siti', 'man siti': 'manchester siti', 'mancity': 'manchester siti',
+    'barsa': 'barselona', 'barca': 'barselona',
+    'real': 'real madrid', 'madrid': 'real madrid',
+    'atleti': 'atletiko madrid',
+    'juve': 'yuventus',
+    'cr7': 'ronaldo', 'ronaldu': 'ronaldo',
+    'leo messi': 'messi', 'messi': 'messi',
+    'vini': 'vinicius', 'vinijr': 'vinicius'
+  };
+
+  function findAnswerLocal(query){
     var q = query.toLowerCase();
 
     for (var i = 0; i < canned.length; i++){
@@ -1354,6 +1825,11 @@
     var stopWords = ['qachon','kim','nima','qanday','necha','haqida','bormi','edi','bo\'lgan','tashkil','topgan','?'];
     var words = q.split(/\s+/).filter(function(w){ return w.length > 2 && stopWords.indexOf(w) === -1; });
 
+    Object.keys(aliasMap).forEach(function(key){
+      var re = new RegExp('\\b' + key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b', 'i');
+      if (re.test(q)) words = words.concat(aliasMap[key].split(' '));
+    });
+
     targets.forEach(function(el){
       var text = el.textContent.toLowerCase();
       var score = 0;
@@ -1368,19 +1844,82 @@
 
     if (best && bestScore > 0){
       var heading = best.querySelector('h3');
-      var snippet = best.textContent.replace(/\s+/g,' ').trim().slice(0, 260);
+      var snippet = best.textContent.replace(/\s+/g,' ').trim().slice(0, 280);
       return (heading ? heading.textContent.trim() + ': ' : '') + snippet + '...';
     }
 
-    return "Kechirasiz, bu savolga aniq javob topa olmadim. Saytdagi Tarix, Qoidalar, Klublar, Afsonalar yoki Rekordlar bo'limlarini ko'rib chiqishingiz mumkin, yoki savolni boshqacharoq shaklda yozib ko'ring.";
+    return null;
   }
 
-  function addMessage(text, cls){
+  function wikiLookup(lang, query){
+    var searchUrl = 'https://' + lang + '.wikipedia.org/w/api.php?action=opensearch&search=' + encodeURIComponent(query) + '&limit=1&namespace=0&format=json&origin=*';
+    return fetch(searchUrl)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (!data[1] || !data[1].length) return null;
+        var title = data[1][0];
+        var summaryUrl = 'https://' + lang + '.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+        return fetch(summaryUrl)
+          .then(function(res2){ return res2.json(); })
+          .then(function(sumData){
+            if (!sumData.extract) return null;
+            var url = (sumData.content_urls && sumData.content_urls.desktop) ? sumData.content_urls.desktop.page : ('https://' + lang + '.wikipedia.org/wiki/' + encodeURIComponent(title));
+            return { title: sumData.title || title, extract: sumData.extract, url: url };
+          });
+      })
+      .catch(function(){ return null; });
+  }
+
+  function findAnswerExternal(query){
+    return wikiLookup('uz', query).then(function(result){
+      if (result){
+        return { text: result.extract, sourceUrl: result.url, sourceLabel: "Vikipediya (o'zbekcha) — " + result.title };
+      }
+      return wikiLookup('en', query).then(function(result2){
+        if (!result2) return null;
+        return window.translateText(result2.extract).then(function(translated){
+          return { text: translated, sourceUrl: result2.url, sourceLabel: 'Vikipediya (inglizchadan tarjima) — ' + result2.title };
+        });
+      });
+    });
+  }
+
+  function findAnswer(query){
+    var local = findAnswerLocal(query);
+    if (local){
+      return Promise.resolve({ text: local, sourceUrl: null, sourceLabel: null });
+    }
+    return findAnswerExternal(query).then(function(ext){
+      if (ext) return ext;
+      return {
+        text: "Kechirasiz, bu savolga saytimizda ham, ishonchli tashqi manbada ham aniq javob topa olmadim. Savolni boshqacharoq yozib ko'ring yoki kalit so'zlar bilan qayta urinib ko'ring.",
+        sourceUrl: null, sourceLabel: null
+      };
+    });
+  }
+
+  function addMessage(text, cls, link){
     var msg = document.createElement('div');
     msg.className = 'ai-msg ' + cls;
-    msg.textContent = text;
+    var p = document.createElement('div');
+    p.textContent = text;
+    msg.appendChild(p);
+    if (link && link.url){
+      var a = document.createElement('a');
+      a.href = link.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = 'Manba: ' + link.label;
+      a.style.display = 'block';
+      a.style.marginTop = '6px';
+      a.style.fontSize = '11px';
+      a.style.color = '#D4A017';
+      a.style.textDecoration = 'underline';
+      msg.appendChild(a);
+    }
     messages.appendChild(msg);
     messages.scrollTop = messages.scrollHeight;
+    return msg;
   }
 
   function handleSend(){
@@ -1388,14 +1927,188 @@
     if (!q) return;
     addMessage(q, 'user');
     input.value = '';
-    setTimeout(function(){
-      addMessage(findAnswer(q), 'bot');
-    }, 300);
+    var typingMsg = addMessage('Javob qidirilmoqda…', 'bot');
+    findAnswer(q).then(function(result){
+      typingMsg.remove();
+      addMessage(result.text, 'bot', result.sourceUrl ? { url: result.sourceUrl, label: result.sourceLabel } : null);
+    });
   }
 
   sendBtn.addEventListener('click', handleSend);
   input.addEventListener('keydown', function(e){
     if (e.key === 'Enter') handleSend();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var listEl = document.getElementById('fx-list');
+  var statusEl = document.getElementById('fx-status');
+  var dateLabel = document.getElementById('fx-date-label');
+  var titleEl = document.getElementById('fx-title');
+
+  var resultListEl = document.getElementById('fr-list');
+  var resultStatusEl = document.getElementById('fr-status');
+  var resultDateLabel = document.getElementById('fr-date-label');
+
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var dd = String(today.getDate()).padStart(2, '0');
+  var dateStr = yyyy + '-' + mm + '-' + dd;
+
+  var uzMonths = ['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentyabr','oktyabr','noyabr','dekabr'];
+  var dateLabelText = today.getDate() + '-' + uzMonths[today.getMonth()] + ', ' + yyyy;
+  dateLabel.textContent = dateLabelText;
+  resultDateLabel.textContent = dateLabelText;
+
+  var apiUrl = 'https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d=' + dateStr + '&s=Soccer';
+
+  var badgeColors = ['#C0392B','#2980B9','#8E44AD','#16A085','#D35400','#27AE60','#2C3E50','#E67E22','#2471A3','#B03A2E','#1E8449','#6C3483'];
+
+  function colorForTeam(name){
+    var hash = 0;
+    for (var i = 0; i < name.length; i++){ hash = name.charCodeAt(i) + ((hash << 5) - hash); }
+    return badgeColors[Math.abs(hash) % badgeColors.length];
+  }
+
+  function initialsForTeam(name){
+    if (!name) return '?';
+    var words = name.replace(/\./g,'').split(/\s+/).filter(Boolean);
+    if (words.length === 1) return words[0].slice(0,2).toUpperCase();
+    return (words[0][0] + words[1][0]).toUpperCase();
+  }
+
+  function buildBadge(teamName){
+    var badge = document.createElement('div');
+    badge.className = 'fx-badge';
+    badge.style.background = colorForTeam(teamName || '?');
+    badge.textContent = initialsForTeam(teamName);
+    return badge;
+  }
+
+  function buildTeamRow(ev, extraClass){
+    var row = document.createElement('div');
+    row.className = 'fx-row search-target' + (extraClass ? ' ' + extraClass : '');
+
+    var home = document.createElement('div');
+    home.className = 'fx-team home';
+    home.textContent = ev.strHomeTeam || '';
+
+    var away = document.createElement('div');
+    away.className = 'fx-team away';
+    away.textContent = ev.strAwayTeam || '';
+
+    var homeBadge = buildBadge(ev.strHomeTeam);
+    var awayBadge = buildBadge(ev.strAwayTeam);
+
+    return { row: row, home: home, away: away, homeBadge: homeBadge, awayBadge: awayBadge };
+  }
+
+  function isFinished(ev){
+    return ev.intHomeScore !== null && ev.intHomeScore !== undefined && ev.intHomeScore !== '' &&
+           ev.intAwayScore !== null && ev.intAwayScore !== undefined && ev.intAwayScore !== '';
+  }
+
+  var lastDataHash = '';
+
+  function renderFixtures(data){
+    var upcoming = data.events.filter(function(ev){ return !isFinished(ev); });
+    var finished = data.events.filter(isFinished);
+
+    if (upcoming.length){
+      listEl.innerHTML = '';
+      upcoming.slice(0, 15).forEach(function(ev){
+        var parts = buildTeamRow(ev);
+        var mid = document.createElement('div');
+        mid.className = 'fx-mid';
+        var dot = document.createElement('div');
+        dot.className = 'fx-league-dot';
+        dot.title = ev.strLeague || '';
+        var time = document.createElement('div');
+        time.className = 'fx-time mono';
+        time.textContent = ev.strTime ? ev.strTime.slice(0,5) : '--:--';
+        mid.appendChild(dot);
+        mid.appendChild(time);
+
+        parts.row.appendChild(parts.home);
+        parts.row.appendChild(parts.homeBadge);
+        parts.row.appendChild(mid);
+        parts.row.appendChild(parts.awayBadge);
+        parts.row.appendChild(parts.away);
+        listEl.appendChild(parts.row);
+      });
+    } else {
+      listEl.innerHTML = '';
+      statusEl.textContent = "Bugun uchun boshlanmagan o'yin qolmadi.";
+      listEl.appendChild(statusEl);
+    }
+
+    if (finished.length){
+      resultListEl.innerHTML = '';
+      finished.slice(0, 15).forEach(function(ev){
+        var parts = buildTeamRow(ev, 'fr-row');
+        var mid = document.createElement('div');
+        mid.className = 'fx-mid';
+        var dot = document.createElement('div');
+        dot.className = 'fx-league-dot';
+        dot.title = ev.strLeague || '';
+        var score = document.createElement('div');
+        score.className = 'fx-score mono';
+        score.textContent = ev.intHomeScore + ' : ' + ev.intAwayScore;
+        mid.appendChild(dot);
+        mid.appendChild(score);
+
+        parts.row.appendChild(parts.home);
+        parts.row.appendChild(parts.homeBadge);
+        parts.row.appendChild(mid);
+        parts.row.appendChild(parts.awayBadge);
+        parts.row.appendChild(parts.away);
+        resultListEl.appendChild(parts.row);
+      });
+    } else {
+      resultListEl.innerHTML = '';
+      resultStatusEl.textContent = "Hozircha yakunlangan o'yin yo'q. Kunning davomida bu yerda paydo bo'ladi.";
+      resultListEl.appendChild(resultStatusEl);
+    }
+  }
+
+  function loadFixtures(){
+    fetch(apiUrl)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (!data.events || !data.events.length){
+          statusEl.textContent = "Bugun uchun ma'lumot topilmadi. Manba ba'zan cheklangan bo'lishi mumkin — birozdan keyin qayta urinib ko'ring.";
+          resultStatusEl.textContent = "Bugun uchun yakunlangan o'yin topilmadi.";
+          return;
+        }
+        window.__todayEvents = data.events;
+        document.dispatchEvent(new CustomEvent('fixturesUpdated', { detail: data.events }));
+        var hash = JSON.stringify(data.events.map(function(ev){
+          return ev.idEvent + ':' + ev.intHomeScore + ':' + ev.intAwayScore;
+        }));
+        if (hash === lastDataHash) return;
+        lastDataHash = hash;
+        renderFixtures(data);
+      })
+      .catch(function(){
+        if (!lastDataHash){
+          statusEl.textContent = "Jadvalni yuklab bo'lmadi. Internetga ulanishni tekshiring yoki keyinroq urinib ko'ring.";
+          resultStatusEl.textContent = "Natijalarni yuklab bo'lmadi.";
+        }
+      });
+  }
+
+  loadFixtures();
+
+  setInterval(function(){
+    if (document.hidden) return;
+    loadFixtures();
+  }, 60000);
+
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) loadFixtures();
   });
 })();
 </script>
