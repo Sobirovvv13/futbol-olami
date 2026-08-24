@@ -160,6 +160,89 @@
   }
   .hero-stats .lbl{ font-size:12px; color:rgba(250,248,242,0.6); text-transform:uppercase; letter-spacing:1px; }
 
+  /* MENU LIST (hamburger + dropdown list of all sections) */
+  .menu-btn{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    width:38px; height:38px;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:4px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .menu-btn span{
+    width:18px; height:2px;
+    background:var(--chalk);
+    border-radius:1px;
+  }
+  .menu-btn:hover span{ background:var(--gold); }
+  .menu-panel{
+    position:fixed;
+    top:0; right:0; bottom:0;
+    width:340px;
+    max-width:90vw;
+    background:var(--card);
+    border-left:1px solid var(--line);
+    box-shadow:-8px 0 32px rgba(0,0,0,0.5);
+    z-index:100;
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+  }
+  .menu-panel.open{ transform:translateX(0); }
+  .menu-panel-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 20px 14px;
+    border-bottom:1px solid var(--line);
+  }
+  .menu-panel-head h4{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:20px; letter-spacing:1px;
+  }
+  .menu-close-btn{
+    background:none; border:none;
+    color:rgba(250,248,242,0.6);
+    font-size:22px;
+    cursor:pointer;
+    line-height:1;
+    padding:4px;
+  }
+  .menu-close-btn:hover{ color:var(--gold); }
+  .menu-list{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+    padding:18px;
+  }
+  .menu-list a{
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    min-height:56px;
+    padding:8px 6px;
+    text-decoration:none;
+    color:var(--chalk);
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:0.2px;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:8px;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .menu-list a:hover{ border-color:var(--gold); color:var(--gold); }
+  .menu-list a.active{ color:var(--ink); background:var(--gold); border-color:var(--gold); }
+  .menu-overlay{
+    position:fixed; inset:0;
+    background:rgba(0,0,0,0.5);
+    z-index:99;
+    display:none;
+  }
+  .menu-overlay.open{ display:block; }
+
   /* PITCH DIVIDER — signature element */
   .pitch-divider{
     height:64px; position:relative;
@@ -552,6 +635,7 @@
     font-size:12px;
     color:#fff;
     flex-shrink:0;
+    overflow:hidden;
   }
   .fx-mid{
     display:flex; flex-direction:column; align-items:center; gap:4px;
@@ -740,6 +824,78 @@
     font-size:12px;
     cursor:pointer;
   }
+
+  /* PROFILE / LEVEL SYSTEM */
+  .profile-card{
+    margin-top:24px;
+    background:linear-gradient(135deg, var(--card) 0%, var(--ink) 100%);
+    border:1px solid var(--gold);
+    border-radius:14px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .profile-badge-icon{
+    font-size:48px;
+    flex-shrink:0;
+    width:80px; height:80px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(212,160,23,0.1);
+    border:2px solid var(--gold);
+    border-radius:50%;
+  }
+  .profile-info{ flex:1; min-width:200px; }
+  .profile-level-name{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:28px;
+    color:var(--gold);
+    letter-spacing:0.5px;
+  }
+  .profile-points{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    color:rgba(250,248,242,0.6);
+    margin-top:4px;
+  }
+  .profile-progress-track{
+    margin-top:12px;
+    height:8px;
+    background:var(--ink);
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .profile-progress-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--pitch-light), var(--gold));
+    border-radius:4px;
+    transition:width .4s ease;
+  }
+  .profile-next{
+    font-size:11px;
+    color:rgba(250,248,242,0.45);
+    margin-top:6px;
+    font-family:'Space Mono', monospace;
+  }
+
+  /* SHARE CARD BUTTON */
+  .share-card-btn{
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    border-radius:8px;
+    padding:9px 18px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    cursor:pointer;
+  }
+  .share-card-btn:hover{ background:rgba(212,160,23,0.1); }
 
   /* PREDICTIONS */
   .pred-total-box{
@@ -989,23 +1145,35 @@
       </div>
       <div class="search-results" id="search-results"></div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#tarix">Tarix</a></li>
-      <li><a href="#yangiliklar">Yangiliklar</a></li>
-      <li><a href="#qoidalar">Qoidalar</a></li>
-      <li><a href="#ligalar">Ligalar</a></li>
-      <li><a href="#klublar">Klublar</a></li>
-      <li><a href="#ozbekiston">O'zbekiston</a></li>
-      <li><a href="#afsonalar">Afsonalar</a></li>
-      <li><a href="#jadval">Jadval</a></li>
-      <li><a href="#natijalar">Natijalar</a></li>
-      <li><a href="#transferlar">Transferlar</a></li>
-      <li><a href="#viktorina">Viktorina</a></li>
-      <li><a href="#bashoratlar">Bashoratlar</a></li>
-      <li><a href="#rekordlar">Rekordlar</a></li>
-    </ul>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menyu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+<div class="menu-panel" id="menu-panel">
+  <div class="menu-panel-head">
+    <h4>Bo'limlar</h4>
+    <button class="menu-close-btn" id="menu-close-btn" type="button" aria-label="Yopish">&times;</button>
+  </div>
+  <div class="menu-list" id="menu-list">
+    <a href="#tarix">Tarix</a>
+    <a href="#yangiliklar">Yangiliklar</a>
+    <a href="#qoidalar">Qoidalar</a>
+    <a href="#ligalar">Ligalar</a>
+    <a href="#klublar">Klublar</a>
+    <a href="#ozbekiston">O'zbekiston</a>
+    <a href="#afsonalar">Afsonalar</a>
+    <a href="#jadval">Jadval</a>
+    <a href="#natijalar">Natijalar</a>
+    <a href="#transferlar">Transferlar</a>
+    <a href="#viktorina">Viktorina</a>
+    <a href="#bashoratlar">Bashoratlar</a>
+    <a href="#profil">Profil</a>
+    <a href="#rekordlar">Rekordlar</a>
+  </div>
+</div>
 
 <section class="hero">
   <div class="about-badge">
@@ -1547,6 +1715,29 @@
 
 <div class="pitch-divider"></div>
 
+<section id="profil">
+  <div class="wrap">
+    <div class="eyebrow">Sizning yutuqlaringiz</div>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Mening darajam</h2>
+    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px; max-width:600px;">Viktorina va bashoratlardagi ballaringiz birlashib, darajangizni belgilaydi. Faqat sizning brauzeringizda saqlanadi.</p>
+
+    <div class="profile-card" id="profile-card">
+      <div class="profile-badge-icon" id="profile-badge-icon">🥉</div>
+      <div class="profile-info">
+        <div class="profile-level-name" id="profile-level-name">Debyutant</div>
+        <div class="profile-points" id="profile-points">0 ball</div>
+        <div class="profile-progress-track">
+          <div class="profile-progress-fill" id="profile-progress-fill" style="width:0%;"></div>
+        </div>
+        <div class="profile-next" id="profile-next"></div>
+      </div>
+    </div>
+    <button class="share-card-btn" id="profile-share-btn" type="button">📥 Natijamni rasm qilib yuklab olish</button>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
 <section id="rekordlar">
   <div class="wrap">
     <div class="eyebrow">Statistika</div>
@@ -1658,9 +1849,15 @@
   var showOriginal = false;
   var newsItems = [];
 
+  function fetchWithTimeout(url, ms){
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, ms || 6000);
+    return fetch(url, { signal: controller.signal }).finally(function(){ clearTimeout(timer); });
+  }
+
   function translateViaMyMemory(text){
     var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=en|uz';
-    return fetch(url)
+    return fetchWithTimeout(url, 6000)
       .then(function(res){ return res.json(); })
       .then(function(data){
         if (data && data.responseData && data.responseData.translatedText){
@@ -1674,23 +1871,49 @@
       .catch(function(){ return null; });
   }
 
-  function translateViaLingva(text){
-    var url = 'https://lingva.ml/api/v1/en/uz/' + encodeURIComponent(text);
-    return fetch(url)
+  var lingvaMirrors = [
+    'https://lingva.ml/api/v1/en/uz/',
+    'https://lingva.garudalinux.org/api/v1/en/uz/',
+    'https://translate.plausibility.cloud/api/v1/en/uz/'
+  ];
+
+  function translateViaLingvaMirror(text, mirrorIdx){
+    if (mirrorIdx >= lingvaMirrors.length) return Promise.resolve(null);
+    var url = lingvaMirrors[mirrorIdx] + encodeURIComponent(text);
+    return fetchWithTimeout(url, 5000)
       .then(function(res){ return res.json(); })
       .then(function(data){
         if (data && data.translation) return data.translation;
-        return null;
+        return translateViaLingvaMirror(text, mirrorIdx + 1);
       })
-      .catch(function(){ return null; });
+      .catch(function(){ return translateViaLingvaMirror(text, mirrorIdx + 1); });
+  }
+
+  function cacheKey(text){
+    var hash = 0;
+    for (var i = 0; i < text.length; i++){ hash = (hash * 31 + text.charCodeAt(i)) | 0; }
+    return 'tr_' + hash;
   }
 
   function translateText(text){
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var key = cacheKey(text);
+    try {
+      var cached = localStorage.getItem(key);
+      if (cached) return Promise.resolve(cached);
+    } catch(e){}
+
     return translateViaMyMemory(text).then(function(result){
       if (result) return result;
-      return translateViaLingva(text).then(function(result2){
-        return result2 || text;
+      return translateViaLingvaMirror(text, 0).then(function(result2){
+        return result2 || null;
       });
+    }).then(function(finalResult){
+      if (finalResult){
+        try { localStorage.setItem(key, finalResult); } catch(e){}
+        return finalResult;
+      }
+      return text + ' (tarjima xizmati vaqtincha javob bermayapti)';
     });
   }
   window.translateText = translateText;
@@ -1808,6 +2031,26 @@
     'vini': 'vinicius', 'vinijr': 'vinicius'
   };
 
+  var stopWords = ['qachon','kim','nima','nimalar','qanday','qaysi','necha','nechta','haqida','bormi','edi','bolgan','bo\'lgan','tashkil','topgan','ayt','ayting','gapir','gapiring','menga','man','bu','shu','bilan','uchun','yoki','va','ham','deb','degan'];
+
+  function cleanWord(w){
+    return w.replace(/^[^\wʻʼ'a-zA-Zа-яА-ЯёЁ0-9]+|[^\wʻʼ'a-zA-Zа-яА-ЯёЁ0-9]+$/g, '');
+  }
+
+  function extractKeyTerms(query){
+    var q = query.toLowerCase();
+    var words = q.split(/\s+/)
+      .map(cleanWord)
+      .filter(function(w){ return w.length > 2 && stopWords.indexOf(w) === -1; });
+
+    Object.keys(aliasMap).forEach(function(key){
+      var re = new RegExp('\\b' + key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b', 'i');
+      if (re.test(q)) words = words.concat(aliasMap[key].split(' '));
+    });
+
+    return words;
+  }
+
   function findAnswerLocal(query){
     var q = query.toLowerCase();
 
@@ -1822,13 +2065,7 @@
     var targets = document.querySelectorAll('.search-target');
     var best = null;
     var bestScore = 0;
-    var stopWords = ['qachon','kim','nima','qanday','necha','haqida','bormi','edi','bo\'lgan','tashkil','topgan','?'];
-    var words = q.split(/\s+/).filter(function(w){ return w.length > 2 && stopWords.indexOf(w) === -1; });
-
-    Object.keys(aliasMap).forEach(function(key){
-      var re = new RegExp('\\b' + key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b', 'i');
-      if (re.test(q)) words = words.concat(aliasMap[key].split(' '));
-    });
+    var words = extractKeyTerms(query);
 
     targets.forEach(function(el){
       var text = el.textContent.toLowerCase();
@@ -1871,11 +2108,15 @@
   }
 
   function findAnswerExternal(query){
-    return wikiLookup('uz', query).then(function(result){
+    var terms = extractKeyTerms(query);
+    if (!terms.length) return Promise.resolve(null);
+    var searchPhrase = terms.slice(0, 6).join(' ');
+
+    return wikiLookup('uz', searchPhrase).then(function(result){
       if (result){
         return { text: result.extract, sourceUrl: result.url, sourceLabel: "Vikipediya (o'zbekcha) — " + result.title };
       }
-      return wikiLookup('en', query).then(function(result2){
+      return wikiLookup('en', searchPhrase).then(function(result2){
         if (!result2) return null;
         return window.translateText(result2.extract).then(function(translated){
           return { text: translated, sourceUrl: result2.url, sourceLabel: 'Vikipediya (inglizchadan tarjima) — ' + result2.title };
@@ -1980,12 +2221,60 @@
     return (words[0][0] + words[1][0]).toUpperCase();
   }
 
+  var teamBadgeCache = {};
+  try { teamBadgeCache = JSON.parse(localStorage.getItem('teamBadgeCache') || '{}'); } catch(e){}
+
+  function saveBadgeCache(){
+    try { localStorage.setItem('teamBadgeCache', JSON.stringify(teamBadgeCache)); } catch(e){}
+  }
+
+  function fetchTeamBadge(teamName){
+    if (!teamName) return Promise.resolve(null);
+    if (teamBadgeCache.hasOwnProperty(teamName)) return Promise.resolve(teamBadgeCache[teamName]);
+    var url = 'https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=' + encodeURIComponent(teamName);
+    return fetch(url)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        var badgeUrl = null;
+        if (data && data.teams && data.teams.length && data.teams[0].strTeamBadge){
+          badgeUrl = data.teams[0].strTeamBadge;
+        }
+        teamBadgeCache[teamName] = badgeUrl;
+        saveBadgeCache();
+        return badgeUrl;
+      })
+      .catch(function(){
+        teamBadgeCache[teamName] = null;
+        return null;
+      });
+  }
+
   function buildBadge(teamName){
-    var badge = document.createElement('div');
-    badge.className = 'fx-badge';
-    badge.style.background = colorForTeam(teamName || '?');
-    badge.textContent = initialsForTeam(teamName);
-    return badge;
+    var wrapper = document.createElement('div');
+    wrapper.className = 'fx-badge';
+    wrapper.style.background = colorForTeam(teamName || '?');
+    wrapper.textContent = initialsForTeam(teamName);
+
+    fetchTeamBadge(teamName).then(function(url){
+      if (!url) return;
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = teamName || '';
+      img.loading = 'lazy';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'contain';
+      img.onerror = function(){ img.remove(); };
+      img.onload = function(){
+        wrapper.textContent = '';
+        wrapper.style.background = '#fff';
+        wrapper.style.padding = '3px';
+        wrapper.style.boxSizing = 'border-box';
+        wrapper.appendChild(img);
+      };
+    });
+
+    return wrapper;
   }
 
   function buildTeamRow(ev, extraClass){
@@ -2110,6 +2399,401 @@
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden) loadFixtures();
   });
+})();
+</script>
+
+<script>
+(function(){
+  var input = document.getElementById('fav-team-input');
+  var datalist = document.getElementById('fav-team-list');
+  var saveBtn = document.getElementById('fav-save-btn');
+  var clearBtn = document.getElementById('fav-clear-btn');
+  var resultEl = document.getElementById('fav-result');
+
+  var teamNames = ['Real Madrid','Barselona','Arsenal','Manchester Siti','Manchester Yunayted','Atletiko Madrid','Paxtakor','Neftchi Farg\'ona','Bunyodkor','Nasaf Qarshi'];
+  teamNames.forEach(function(name){
+    var opt = document.createElement('option');
+    opt.value = name;
+    datalist.appendChild(opt);
+  });
+
+  function getFav(){ return localStorage.getItem('favTeam') || ''; }
+
+  function renderFavResult(){
+    var fav = getFav();
+    if (!fav){
+      resultEl.innerHTML = '';
+      return;
+    }
+    var events = window.__todayEvents || [];
+    var match = events.find(function(ev){
+      var f = fav.toLowerCase();
+      return (ev.strHomeTeam && ev.strHomeTeam.toLowerCase().indexOf(f) !== -1) ||
+             (ev.strAwayTeam && ev.strAwayTeam.toLowerCase().indexOf(f) !== -1) ||
+             (f.indexOf(ev.strHomeTeam ? ev.strHomeTeam.toLowerCase() : '###') !== -1) ||
+             (f.indexOf(ev.strAwayTeam ? ev.strAwayTeam.toLowerCase() : '###') !== -1);
+    });
+
+    var html = 'Sevimli jamoangiz: <span class="fav-team-name">' + fav + '</span>';
+    if (match){
+      var scoreText = (match.intHomeScore !== null && match.intHomeScore !== undefined && match.intHomeScore !== '')
+        ? (match.intHomeScore + ' : ' + match.intAwayScore)
+        : (match.strTime ? match.strTime.slice(0,5) : '--:--');
+      html += '<div class="fav-highlight-row">' +
+        '<div style="font-weight:700;">' + (match.strHomeTeam||'') + '</div>' +
+        '<div class="fx-time mono">' + scoreText + '</div>' +
+        '<div style="font-weight:700;">' + (match.strAwayTeam||'') + '</div>' +
+        '</div>';
+    } else if (events.length) {
+      html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugun jamoangiz ishtirokidagi o\'yin topilmadi (yoki ma\'lumot bazamiz uni qamrab olmagan).</div>';
+    } else {
+      html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugungi jadval hali yuklanmoqda&hellip;</div>';
+    }
+    resultEl.innerHTML = html;
+  }
+
+  saveBtn.addEventListener('click', function(){
+    var val = input.value.trim();
+    if (!val) return;
+    localStorage.setItem('favTeam', val);
+    renderFavResult();
+  });
+
+  clearBtn.addEventListener('click', function(){
+    localStorage.removeItem('favTeam');
+    input.value = '';
+    resultEl.innerHTML = '';
+  });
+
+  var savedFav = getFav();
+  if (savedFav) input.value = savedFav;
+  renderFavResult();
+
+  document.addEventListener('fixturesUpdated', renderFavResult);
+})();
+</script>
+
+<script>
+(function(){
+  var progressEl = document.getElementById('quiz-progress');
+  var questionEl = document.getElementById('quiz-question');
+  var optionsEl = document.getElementById('quiz-options');
+  var explainEl = document.getElementById('quiz-explain');
+  var nextBtn = document.getElementById('quiz-next-btn');
+  var cardEl = document.getElementById('quiz-card');
+
+  var allQuestions = [
+    { q:"Futbol qoidalari birinchi marta qaysi yili rasman tasdiqlangan?", opts:["1863-yil","1904-yil","1930-yil","1994-yil"], correct:0, explain:"1863-yilda Londonda Football Association tashkil topib, birinchi yagona qoidalar to'plami qabul qilingan." },
+    { q:"Bir jamoada maydonda nechta o'yinchi bo'ladi?", opts:["9","10","11","12"], correct:2, explain:"Har bir jamoa maydonda 11 nafar o'yinchi (shu jumladan darvozabon) bilan chiqadi." },
+    { q:"FIFA qaysi yili tashkil topgan?", opts:["1900-yil","1904-yil","1912-yil","1930-yil"], correct:1, explain:"FIFA 1904-yilda Parijda tashkil etilgan." },
+    { q:"Birinchi Jahon chempionati qaysi davlatda o'tkazilgan?", opts:["Braziliya","Fransiya","Urugvay","Angliya"], correct:2, explain:"1930-yilgi birinchi Jahon chempionati Urugvayda o'tkazilgan va mezbon jamoa o'zi chempion bo'lgan." },
+    { q:"Ofsayd qoidasi nimani anglatadi?", opts:["Qizil karta olish","Hujumchining raqib darvozasiga himoyachidan yaqinroq turishi","Penalti zarbasi","O'yin vaqti tugashi"], correct:1, explain:"Ofsayd — to'p uzatilgan payt hujumchi raqib darvozasiga oxirgi himoyachidan yaqinroq turgan holat." },
+    { q:"Real Madrid qaysi yili tashkil topgan?", opts:["1899-yil","1902-yil","1920-yil","1950-yil"], correct:1, explain:"Real Madrid 1902-yilda Ispaniyaning Madrid shahrida tashkil topgan." },
+    { q:"Barselona klubini kim asos solgan?", opts:["Joan Gamper","Yohan Kroyf","Lionel Messi","Xavi"], correct:0, explain:"Barselona klubiga shveytsariyalik Joan Gamper 1899-yilda asos solgan." },
+    { q:"Cristiano Ronaldo hozirda qaysi klubda o'ynaydi?", opts:["Real Madrid","Al-Nassr","Manchester Yunayted","Yuventus"], correct:1, explain:"Cristiano Ronaldo hozirda Saudiya Arabistonining Al-Nassr klubida o'ynaydi." },
+    { q:"Neymar futbol tarixidagi eng qimmat transferi qaysi klubga amalga oshirilgan?", opts:["Real Madrid","Barselona","PSJ","Manchester Siti"], correct:2, explain:"Neymar 2017-yilda Barselonadan PSJga 222 million yevroga o'tgan — bu hozirgacha saqlanib kelayotgan jahon rekordi." },
+    { q:"Manchester Siti qaysi yilda birinchi marta 'treble' (uch trofey)ni qo'lga kiritgan?", opts:["2019-yil","2021-yil","2023-yil","2024-yil"], correct:2, explain:"Manchester Siti 2023-yilda Pep Gvardiola rahbarligida birinchi marta uchta trofeyni bir mavsumda qo'lga kiritgan." },
+    { q:"O'zbekiston terma jamoasi qaysi yili birinchi marta Jahon chempionatiga yo'llanma olgan?", opts:["2018-yil","2022-yil","2026-yil","2030-yil"], correct:2, explain:"O'zbekiston 2026-yilgi Jahon chempionatiga tarixida birinchi marta yo'llanma qo'lga kiritdi." },
+    { q:"O'zbekiston terma jamoasiga hozir kim bosh murabbiylik qilmoqda?", opts:["Fabio Kannavaro","Pep Gvardiola","Zinedine Zidane","Karlo Anchelotti"], correct:0, explain:"2006-yilgi Jahon chempioni, italiyalik Fabio Kannavaro O'zbekiston terma jamoasiga bosh murabbiylik qilmoqda." },
+    { q:"Penalti zarbasi darvozadan necha metr masofadan uriladi?", opts:["9 metr","11 metr","13 metr","16 metr"], correct:1, explain:"Penalti — jarima maydonchasida sodir bo'lgan xatolik uchun 11 metrlik nuqtadan uriladigan zarba." },
+    { q:"VAR nimani anglatadi?", opts:["Video Aniq Reyting","Video Yordamchi Hakam","Variant Analiz Robot","Vaqt va Rekord"], correct:1, explain:"VAR — Video Yordamchi Hakam, muhim holatlarni qayta ko'rib chiqishda hakamlarga yordam beruvchi tizim." },
+    { q:"Lionel Messi necha marta Oltin to'p mukofotiga sazovor bo'lgan?", opts:["5 marta","6 marta","7 marta","8 marta"], correct:3, explain:"Lionel Messi sakkiz marta Oltin to'p (Ballon d'Or) mukofoti sohibi bo'lgan — bu rekord ko'rsatkich." },
+    { q:"Arsenalning 'Yengilmaslar' (Invincibles) nomi qaysi mavsum bilan bog'liq?", opts:["1998/99","2003/04","2011/12","2015/16"], correct:1, explain:"Arsen Venger rahbarligidagi Arsenal 2003/04 mavsumida chempionatni mag'lubiyatsiz yakunlab, bu nomga sazovor bo'lgan." },
+    { q:"Diego Maradonaning 'Asr goli' qaysi Jahon chempionatida urilgan?", opts:["1982-yil","1986-yil","1990-yil","1994-yil"], correct:1, explain:"1986-yilgi Jahon chempionatida Angliyaga qarshi o'yinda Maradona mashhur 'Asr goli'ni urgan." },
+    { q:"Paxtakor klubi qaysi shaharda joylashgan?", opts:["Samarqand","Buxoro","Toshkent","Farg'ona"], correct:2, explain:"Paxtakor — O'zbekiston poytaxti Toshkentdagi eng mashhur futbol klubi." },
+    { q:"Bir futbol o'yinining asosiy vaqti necha daqiqa?", opts:["60 daqiqa","70 daqiqa","80 daqiqa","90 daqiqa"], correct:3, explain:"Futbol o'yini ikki yarim taymdan iborat, har biri 45 daqiqadan — jami 90 daqiqa." },
+    { q:"Kilian Mbappe hozirda qaysi klubda o'ynaydi?", opts:["PSJ","Real Madrid","Barselona","Liverpul"], correct:1, explain:"Kilian Mbappe 2024-yilda PSJdan Real Madridga bepul transfer sifatida o'tgan." }
+  ];
+
+  function getWeekNumber(d){
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  }
+
+  var week = getWeekNumber(new Date());
+  var perQuiz = 5;
+  var startIdx = (week * perQuiz) % allQuestions.length;
+  var quizQuestions = [];
+  for (var i = 0; i < perQuiz; i++){
+    quizQuestions.push(allQuestions[(startIdx + i) % allQuestions.length]);
+  }
+
+  var currentIdx = 0;
+  var score = 0;
+  var answered = false;
+
+  function renderQuestion(){
+    answered = false;
+    var q = quizQuestions[currentIdx];
+    progressEl.textContent = "Savol " + (currentIdx + 1) + " / " + quizQuestions.length;
+    questionEl.textContent = q.q;
+    explainEl.style.display = 'none';
+    explainEl.textContent = '';
+    nextBtn.style.display = 'none';
+    optionsEl.innerHTML = '';
+    q.opts.forEach(function(opt, idx){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.type = 'button';
+      btn.textContent = opt;
+      btn.addEventListener('click', function(){
+        if (answered) return;
+        answered = true;
+        var buttons = optionsEl.querySelectorAll('.quiz-option');
+        buttons.forEach(function(b, bi){
+          b.disabled = true;
+          if (bi === q.correct) b.classList.add('correct');
+          else if (bi === idx) b.classList.add('incorrect');
+        });
+        if (idx === q.correct) score++;
+        explainEl.textContent = q.explain;
+        explainEl.style.display = 'block';
+        nextBtn.style.display = 'inline-block';
+        nextBtn.textContent = (currentIdx < quizQuestions.length - 1) ? 'Keyingi savol' : 'Natijani ko\'rish';
+      });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function renderSummary(){
+    var totalPlayed = parseInt(localStorage.getItem('quizTotalPlayed') || '0', 10) + quizQuestions.length;
+    var totalCorrect = parseInt(localStorage.getItem('quizTotalCorrect') || '0', 10) + score;
+    localStorage.setItem('quizTotalPlayed', totalPlayed);
+    localStorage.setItem('quizTotalCorrect', totalCorrect);
+
+    cardEl.innerHTML = '<div class="quiz-score-summary">' +
+      '<div style="font-family:\'Space Mono\',monospace; font-size:12px; color:rgba(250,248,242,0.5); text-transform:uppercase; letter-spacing:1px;">Natija</div>' +
+      '<div class="big-score">' + score + ' / ' + quizQuestions.length + '</div>' +
+      '<div style="margin-top:8px; font-size:13px; color:rgba(250,248,242,0.6);">Jami tarixingiz: ' + totalCorrect + ' / ' + totalPlayed + ' to\'g\'ri javob</div>' +
+      '<button class="quiz-restart-btn" id="quiz-restart-btn" type="button">Qayta boshlash</button>' +
+      '</div>';
+    document.getElementById('quiz-restart-btn').addEventListener('click', function(){
+      currentIdx = 0;
+      score = 0;
+      location.reload();
+    });
+  }
+
+  nextBtn.addEventListener('click', function(){
+    currentIdx++;
+    if (currentIdx < quizQuestions.length){
+      renderQuestion();
+    } else {
+      renderSummary();
+    }
+  });
+
+  renderQuestion();
+})();
+</script>
+
+<script>
+(function(){
+  var listEl = document.getElementById('pred-list');
+  var statusMsgEl = document.getElementById('pred-status-msg');
+  var totalScoreEl = document.getElementById('pred-total-score');
+
+  function getPredictions(){
+    try { return JSON.parse(localStorage.getItem('predictions') || '{}'); }
+    catch(e){ return {}; }
+  }
+  function savePredictions(obj){ localStorage.setItem('predictions', JSON.stringify(obj)); }
+
+  function getTotalScore(){ return parseInt(localStorage.getItem('predTotalScore') || '0', 10); }
+  function setTotalScore(v){ localStorage.setItem('predTotalScore', v); totalScoreEl.textContent = v; }
+
+  function isFinished(ev){
+    return ev.intHomeScore !== null && ev.intHomeScore !== undefined && ev.intHomeScore !== '' &&
+           ev.intAwayScore !== null && ev.intAwayScore !== undefined && ev.intAwayScore !== '';
+  }
+
+  var scoredEvents = {};
+  try { scoredEvents = JSON.parse(localStorage.getItem('predScoredEvents') || '{}'); } catch(e){}
+
+  function checkAndScorePredictions(events){
+    var predictions = getPredictions();
+    var total = getTotalScore();
+    var changed = false;
+
+    events.forEach(function(ev){
+      if (!isFinished(ev)) return;
+      var pred = predictions[ev.idEvent];
+      if (!pred || scoredEvents[ev.idEvent]) return;
+
+      var actualHome = parseInt(ev.intHomeScore, 10);
+      var actualAway = parseInt(ev.intAwayScore, 10);
+      var predHome = parseInt(pred.home, 10);
+      var predAway = parseInt(pred.away, 10);
+
+      var points = 0;
+      if (predHome === actualHome && predAway === actualAway){
+        points = 3;
+      } else {
+        var actualOutcome = actualHome > actualAway ? 'home' : (actualHome < actualAway ? 'away' : 'draw');
+        var predOutcome = predHome > predAway ? 'home' : (predHome < predAway ? 'away' : 'draw');
+        if (actualOutcome === predOutcome) points = 1;
+      }
+      total += points;
+      scoredEvents[ev.idEvent] = points;
+      changed = true;
+    });
+
+    if (changed){
+      setTotalScore(total);
+      localStorage.setItem('predScoredEvents', JSON.stringify(scoredEvents));
+    } else {
+      totalScoreEl.textContent = total;
+    }
+  }
+
+  function renderPredictions(events){
+    var predictions = getPredictions();
+    var upcoming = events.filter(function(ev){ return !isFinished(ev); });
+
+    if (!upcoming.length){
+      listEl.innerHTML = '';
+      statusMsgEl.textContent = "Bugun bashorat qilish uchun boshlanmagan o'yin yo'q.";
+      listEl.appendChild(statusMsgEl);
+      return;
+    }
+
+    listEl.innerHTML = '';
+    upcoming.slice(0, 15).forEach(function(ev){
+      var row = document.createElement('div');
+      row.className = 'pred-row';
+
+      var home = document.createElement('div');
+      home.className = 'pred-team home';
+      home.textContent = ev.strHomeTeam || '';
+
+      var homeInput = document.createElement('input');
+      homeInput.type = 'number';
+      homeInput.min = '0';
+      homeInput.max = '20';
+
+      var away = document.createElement('div');
+      away.className = 'pred-team away';
+      away.textContent = ev.strAwayTeam || '';
+
+      var awayInput = document.createElement('input');
+      awayInput.type = 'number';
+      awayInput.min = '0';
+      awayInput.max = '20';
+
+      var existing = predictions[ev.idEvent];
+      if (existing){
+        homeInput.value = existing.home;
+        awayInput.value = existing.away;
+      }
+
+      var mid = document.createElement('div');
+      mid.className = 'pred-inputs';
+      mid.appendChild(homeInput);
+      var dash = document.createElement('span');
+      dash.textContent = ':';
+      mid.appendChild(dash);
+      mid.appendChild(awayInput);
+
+      var saveBtn = document.createElement('button');
+      saveBtn.className = 'pred-save-btn';
+      saveBtn.type = 'button';
+      saveBtn.textContent = existing ? 'Yangilash' : 'Saqlash';
+      saveBtn.addEventListener('click', function(){
+        if (homeInput.value === '' || awayInput.value === '') return;
+        var all = getPredictions();
+        all[ev.idEvent] = { home: homeInput.value, away: awayInput.value };
+        savePredictions(all);
+        saveBtn.textContent = 'Saqlandi ✓';
+        setTimeout(function(){ saveBtn.textContent = 'Yangilash'; }, 1500);
+      });
+
+      row.appendChild(home);
+      row.appendChild(document.createElement('div'));
+      row.appendChild(mid);
+      row.appendChild(document.createElement('div'));
+      row.appendChild(away);
+      row.appendChild(saveBtn);
+      listEl.appendChild(row);
+    });
+  }
+
+  function handleEvents(events){
+    checkAndScorePredictions(events);
+    renderPredictions(events);
+  }
+
+  totalScoreEl.textContent = getTotalScore();
+
+  if (window.__todayEvents){
+    handleEvents(window.__todayEvents);
+  }
+  document.addEventListener('fixturesUpdated', function(e){
+    handleEvents(e.detail);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menu-btn');
+  var menuPanel = document.getElementById('menu-panel');
+  var menuOverlay = document.getElementById('menu-overlay');
+  var closeBtn = document.getElementById('menu-close-btn');
+  var links = document.querySelectorAll('#menu-list a');
+
+  function openMenu(){
+    menuPanel.classList.add('open');
+    menuOverlay.classList.add('open');
+  }
+  function closeMenu(){
+    menuPanel.classList.remove('open');
+    menuOverlay.classList.remove('open');
+  }
+
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      closeMenu();
+      if (target){
+        setTimeout(function(){
+          target.scrollIntoView({ behavior:'smooth', block:'start' });
+        }, 50);
+      }
+    });
+  });
+
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) sections.push({ id: id, el: sec, link: a });
+  });
+
+  if (!sections.length) return;
+
+  function setActive(id){
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var match = sections.find(function(s){ return s.el === entry.target; });
+        if (match) setActive(match.id);
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ observer.observe(s.el); });
 })();
 </script>
 
