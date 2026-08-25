@@ -756,6 +756,45 @@
   }
 
   /* QUIZ */
+  .quiz-exit-btn{
+    display:none;
+    margin-top:24px;
+    margin-bottom:-12px;
+    background:transparent;
+    border:1px solid rgba(250,248,242,0.25);
+    color:rgba(250,248,242,0.5);
+    border-radius:8px;
+    padding:6px 14px;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    cursor:pointer;
+  }
+  .quiz-exit-btn:hover{ border-color:var(--gold); color:var(--gold); }
+
+  .quiz-start-btn{
+    background:var(--gold);
+    border:none;
+    border-radius:8px;
+    padding:14px 28px;
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .quiz-start-box{
+    text-align:center;
+    padding:20px 0;
+  }
+  .quiz-start-box p{
+    font-size:13px;
+    color:rgba(250,248,242,0.6);
+    margin-bottom:18px;
+    max-width:420px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
   .quiz-card{
     margin-top:40px;
     background:var(--card);
@@ -763,6 +802,8 @@
     border-radius:12px;
     padding:28px;
     max-width:640px;
+    max-height:80vh;
+    overflow-y:auto;
   }
   .quiz-progress{
     font-family:'Space Mono', monospace;
@@ -1584,6 +1625,7 @@
         <div>
           <h3>Superligada Neftchi peshqadam</h3>
           <p>O'zbekiston Superligasida "Neftchi" Farg'ona 28 ochko bilan jadval boshida turibdi, "Paxtakor" 26 ochko bilan ikkinchi o'rinni egallagan. So'nggi turda "Paxtakor" o'z maydonida "Buxoro" bilan 2:2 durang o'ynadi.</p>
+          <div class="view-count-badge" data-view-id="superligada-neftchi-peshqadam-1">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -1591,6 +1633,7 @@
         <div>
           <h3>Yozgi transfer oynasi yakuniga yaqinlashmoqda</h3>
           <p>Yevropaning yetakchi ligalarida transfer oynasi 1-sentyabrda yopiladi. Premer-liga klublari orasida so'nggi kunlarda faol savdolar kuzatilmoqda, jumladan yarim himoyachilar va hujumchilar yo'nalishida bir qancha yirik bitimlar muhokama qilinmoqda.</p>
+          <div class="view-count-badge" data-view-id="yozgi-transfer-oynasi-yakuniga-yaqinlash-2">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
     </div>
@@ -1963,6 +2006,7 @@
         <div>
           <h3>Real Madrid 3:0 Shalke 04</h3>
           <p>Mavsum oldi o'yinida Real Madrid Shalke 04 ustidan 3:0 hisobida g'alaba qozondi. Jamoa bu bilan tayyorgarlik o'yinlarida ketma-ket g'alabalar seriyasini davom ettirdi. 22-avgustda La Liga safarida Espanyol bilan bahslashadi.</p>
+          <div class="view-count-badge" data-view-id="real-madrid-3-0-shalke-04-3">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -1970,6 +2014,7 @@
         <div>
           <h3>Manchester Siti 2:1 Arsenal</h3>
           <p>Ikki jamoaning so'nggi bevosita uchrashuvida Manchester Siti Arsenalni 2:1 hisobida mag'lub etgan edi. Biroq mavsum oldi Community Shield'ida rollar teskari bo'lib, Arsenal 3:0 hisobida qaytarib berdi.</p>
+          <div class="view-count-badge" data-view-id="manchester-siti-2-1-arsenal-4">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -1977,6 +2022,7 @@
         <div>
           <h3>Barselona 2:1 Al-Ahli</h3>
           <p>Barselona mavsum oldi Joan Gamper Trofeyida Misr klubi Al-Ahli ustidan 2:1 hisobida g'alaba qozondi. 2025/26 mavsumida Barselona La Liga chempioni bo'lgan edi — klubning tarixdagi 29-chempionlik unvoni.</p>
+          <div class="view-count-badge" data-view-id="barselona-2-1-al-ahli-5">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -1984,6 +2030,7 @@
         <div>
           <h3>Paxtakor 2:2 Buxoro</h3>
           <p>Superliganing 16-turida "Paxtakor" o'z maydonida "Buxoro" bilan 2:2 durang o'ynadi. Jadval boshida "Neftchi" Farg'ona 28 ochko bilan peshqadam, "Paxtakor" 26 ochko bilan ikkinchi o'rinda.</p>
+          <div class="view-count-badge" data-view-id="paxtakor-2-2-buxoro-6">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
     </div>
@@ -2003,6 +2050,7 @@
         <div>
           <h3>Rodri — Manchester Sitidan Barselonaga</h3>
           <p>Barselona Manchester Sitidan Ispaniya terma jamoasi yarim himoyachisi Rodrini taxminan 65,4 million funt sterling evaziga sotib oldi. O'yinchi "Kataloniya"liklar bilan to'rt yillik shartnoma imzoladi.</p>
+          <div class="view-count-badge" data-view-id="rodri-manchester-sitidan-barselonaga-7">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -2010,6 +2058,7 @@
         <div>
           <h3>Bruno Gimaraes — Nyukaslddan Arsenalga</h3>
           <p>Arsenal braziliyalik yarim himoyachi Bruno Gimaraesni Nyukasl Yunayteddan rasman transfer qildi. Bitim yozgi transfer oynasining yakuniy bosqichidagi yirik savdolardan biri bo'ldi.</p>
+          <div class="view-count-badge" data-view-id="bruno-gimaraes-nyukaslddan-arsenalga-8">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
       <div class="news-item search-target">
@@ -2017,6 +2066,7 @@
         <div>
           <h3>Transfer oynasi 1-sentyabrda yopiladi</h3>
           <p>Yevropaning yetakchi ligalarida yozgi transfer oynasi 1-sentyabr kuni soat 23:00da (Buyuk Britaniya vaqti) yopiladi. Shu sababli so'nggi kunlarda klublar orasida savdolar faollashishi kutilmoqda.</p>
+          <div class="view-count-badge" data-view-id="transfer-oynasi-1-sentyabrda-yopiladi-9">👁 <span class="vc-num">–</span> marta ko'rildi</div>
         </div>
       </div>
     </div>
@@ -2029,15 +2079,13 @@
 <section id="viktorina">
   <div class="wrap">
     <div class="eyebrow">Bilim sinovi</div>
-    <h2 style="font-size:clamp(36px,6vw,56px)">Haftalik viktorina</h2>
-    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px; max-width:560px;">Saytdagi ma'lumotlar asosida futbol bilimingizni sinab ko'ring. Har hafta savollar avtomatik yangilanadi.</p>
+    <h2 style="font-size:clamp(36px,6vw,56px)">Kunlik viktorina</h2>
+    <p style="color:rgba(250,248,242,0.6); font-size:14px; margin-top:8px; max-width:560px;">Saytdagi ma'lumotlar asosida futbol bilimingizni sinab ko'ring. Har kuni yangi savollar. O'zingiz xohlagan payt boshlang.</p>
 
     <div class="quiz-card" id="quiz-card">
-      <div class="quiz-progress" id="quiz-progress">Savol 1 / 5</div>
-      <div class="quiz-question" id="quiz-question">Yuklanmoqda&hellip;</div>
-      <div class="quiz-options" id="quiz-options"></div>
-      <div class="quiz-explain" id="quiz-explain"></div>
-      <button class="quiz-next-btn" id="quiz-next-btn" type="button">Keyingi savol</button>
+      <div class="quiz-start-box">
+        <p>Yuklanmoqda&hellip;</p>
+      </div>
     </div>
   </div>
 </section>
@@ -2483,23 +2531,56 @@
     return null;
   }
 
-  function wikiLookup(lang, query){
-    var searchUrl = 'https://' + lang + '.wikipedia.org/w/api.php?action=opensearch&search=' + encodeURIComponent(query) + '&limit=1&namespace=0&format=json&origin=*';
+  function wikiFullTextSearch(lang, query, limit){
+    var searchUrl = 'https://' + lang + '.wikipedia.org/w/api.php?action=query&list=search&srsearch=' + encodeURIComponent(query) + '&format=json&origin=*&srlimit=' + (limit || 4);
     return fetch(searchUrl)
       .then(function(res){ return res.json(); })
       .then(function(data){
-        if (!data[1] || !data[1].length) return null;
-        var title = data[1][0];
-        var summaryUrl = 'https://' + lang + '.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
-        return fetch(summaryUrl)
-          .then(function(res2){ return res2.json(); })
-          .then(function(sumData){
-            if (!sumData.extract) return null;
-            var url = (sumData.content_urls && sumData.content_urls.desktop) ? sumData.content_urls.desktop.page : ('https://' + lang + '.wikipedia.org/wiki/' + encodeURIComponent(title));
-            return { title: sumData.title || title, extract: sumData.extract, url: url };
-          });
+        if (data && data.query && data.query.search) return data.query.search.map(function(r){ return r.title; });
+        return [];
+      })
+      .catch(function(){ return []; });
+  }
+
+  function wikiSummary(lang, title){
+    var summaryUrl = 'https://' + lang + '.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+    return fetch(summaryUrl)
+      .then(function(res){ return res.json(); })
+      .then(function(sumData){
+        if (!sumData.extract) return null;
+        var url = (sumData.content_urls && sumData.content_urls.desktop) ? sumData.content_urls.desktop.page : ('https://' + lang + '.wikipedia.org/wiki/' + encodeURIComponent(title));
+        return { title: sumData.title || title, extract: sumData.extract, url: url };
       })
       .catch(function(){ return null; });
+  }
+
+  var footballKeywords = ['futbol','football','fifa','uefa','jamoa','klub','liga','stadion','murabbiy','gol','o\'yinchi','terma jamoa','chempionat','superliga','soccer','player','coach','club','league','match','forward','midfielder','defender','goalkeeper','afc'];
+
+  function isFootballRelated(text){
+    if (!text) return false;
+    var lower = text.toLowerCase();
+    return footballKeywords.some(function(k){ return lower.indexOf(k) !== -1; });
+  }
+
+  function wikiLookupFootball(lang, baseQuery){
+    var qualifier = (lang === 'uz') ? (baseQuery + ' futbolchi') : (baseQuery + ' footballer');
+    var queries = [qualifier, baseQuery];
+
+    function tryQuery(qi){
+      if (qi >= queries.length) return Promise.resolve(null);
+      return wikiFullTextSearch(lang, queries[qi], 4).then(function(titles){
+        if (!titles.length) return tryQuery(qi + 1);
+        function tryTitle(ti){
+          if (ti >= titles.length) return tryQuery(qi + 1);
+          return wikiSummary(lang, titles[ti]).then(function(result){
+            if (result && isFootballRelated(result.extract + ' ' + result.title)) return result;
+            return tryTitle(ti + 1);
+          });
+        }
+        return tryTitle(0);
+      });
+    }
+    return tryQuery(0);
   }
 
   function findAnswerExternal(query){
@@ -2507,11 +2588,11 @@
     if (!terms.length) return Promise.resolve(null);
     var searchPhrase = terms.slice(0, 6).join(' ');
 
-    return wikiLookup('uz', searchPhrase).then(function(result){
+    return wikiLookupFootball('uz', searchPhrase).then(function(result){
       if (result){
         return { text: result.extract, sourceUrl: result.url, sourceLabel: "Vikipediya (o'zbekcha) — " + result.title };
       }
-      return wikiLookup('en', searchPhrase).then(function(result2){
+      return wikiLookupFootball('en', searchPhrase).then(function(result2){
         if (!result2) return null;
         return window.translateText(result2.extract).then(function(translated){
           return { text: translated, sourceUrl: result2.url, sourceLabel: 'Vikipediya (inglizchadan tarjima) — ' + result2.title };
@@ -2528,7 +2609,7 @@
     return findAnswerExternal(query).then(function(ext){
       if (ext) return ext;
       return {
-        text: "Kechirasiz, bu savolga saytimizda ham, ishonchli tashqi manbada ham aniq javob topa olmadim. Savolni boshqacharoq yozib ko'ring yoki kalit so'zlar bilan qayta urinib ko'ring.",
+        text: "Kechirasiz, bu savolga futbolga oid ishonchli javob topa olmadim (men faqat futbol mavzusidagi ma'lumotlarni qidiraman). Savolni aniqroq yozib ko'ring — masalan, futbolchi yoki jamoa nomini to'liqroq kiriting.",
         sourceUrl: null, sourceLabel: null
       };
     });
@@ -2643,6 +2724,7 @@
         return null;
       });
   }
+  window.fetchTeamBadge = fetchTeamBadge;
 
   function buildBadge(teamName){
     var wrapper = document.createElement('div');
@@ -2837,9 +2919,11 @@
         ? (match.intHomeScore + ' : ' + match.intAwayScore)
         : (match.strTime ? match.strTime.slice(0,5) : '--:--');
       html += '<div class="fav-highlight-row">' +
+        '<div class="fx-badge" id="fav-home-badge" style="background:#fff;"></div>' +
         '<div style="font-weight:700;">' + (match.strHomeTeam||'') + '</div>' +
         '<div class="fx-time mono">' + scoreText + '</div>' +
         '<div style="font-weight:700;">' + (match.strAwayTeam||'') + '</div>' +
+        '<div class="fx-badge" id="fav-away-badge" style="background:#fff;"></div>' +
         '</div>';
     } else if (events.length) {
       html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugun jamoangiz ishtirokidagi o\'yin topilmadi (yoki ma\'lumot bazamiz uni qamrab olmagan).</div>';
@@ -2847,6 +2931,21 @@
       html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugungi jadval hali yuklanmoqda&hellip;</div>';
     }
     resultEl.innerHTML = html;
+
+    if (match && window.fetchTeamBadge){
+      window.fetchTeamBadge(match.strHomeTeam).then(function(url){
+        if (url){
+          var el = document.getElementById('fav-home-badge');
+          if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
+        }
+      });
+      window.fetchTeamBadge(match.strAwayTeam).then(function(url){
+        if (url){
+          var el = document.getElementById('fav-away-badge');
+          if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
+        }
+      });
+    }
   }
 
   saveBtn.addEventListener('click', function(){
@@ -2902,29 +3001,72 @@
     { q:"Kilian Mbappe hozirda qaysi klubda o'ynaydi?", opts:["PSJ","Real Madrid","Barselona","Liverpul"], correct:1, explain:"Kilian Mbappe 2024-yilda PSJdan Real Madridga bepul transfer sifatida o'tgan." }
   ];
 
-  function getWeekNumber(d){
-    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
-    var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
-    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  function getDayKey(d){
+    return d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+  }
+  function getDayOfYear(d){
+    var start = new Date(d.getFullYear(), 0, 0);
+    var diff = d - start;
+    return Math.floor(diff / 86400000);
   }
 
-  var week = getWeekNumber(new Date());
+  var todayKey = getDayKey(new Date());
+  var dayNum = getDayOfYear(new Date());
   var perQuiz = 5;
-  var startIdx = (week * perQuiz) % allQuestions.length;
+  var startIdx = (dayNum * perQuiz) % allQuestions.length;
   var quizQuestions = [];
   for (var i = 0; i < perQuiz; i++){
     quizQuestions.push(allQuestions[(startIdx + i) % allQuestions.length]);
   }
 
+  var alreadyScoredToday = (localStorage.getItem('quizLastScoredDay') === todayKey);
+
   var currentIdx = 0;
   var score = 0;
   var answered = false;
 
+  function renderStartScreen(){
+    cardEl.innerHTML = '<div class="quiz-start-box">' +
+      '<div class="quiz-progress" style="justify-content:center; display:flex;">' + quizQuestions.length + ' ta savol &middot; bugungi to\'plam</div>' +
+      '<p>' + (alreadyScoredToday
+        ? "Bugungi viktorinani allaqachon yakunlagansiz. Xohlasangiz mashq uchun qayta ishlashingiz mumkin, lekin ball qo'shilmaydi."
+        : "Har kuni yangi 5 ta savol. To'g'ri javoblar darajangizga ball qo'shadi.") + '</p>' +
+      '<button class="quiz-start-btn" id="quiz-start-btn" type="button">▶ Viktorinani boshlash</button>' +
+      '</div>';
+    document.getElementById('quiz-start-btn').addEventListener('click', function(){
+      currentIdx = 0;
+      score = 0;
+      rebuildQuizLayout();
+      renderQuestion();
+    });
+  }
+
+  function rebuildQuizLayout(){
+    cardEl.innerHTML =
+      '<div class="quiz-progress" id="quiz-progress"></div>' +
+      '<div class="quiz-question" id="quiz-question"></div>' +
+      '<div class="quiz-options" id="quiz-options"></div>' +
+      '<div class="quiz-explain" id="quiz-explain"></div>' +
+      '<button class="quiz-next-btn" id="quiz-next-btn" type="button">Keyingi savol</button>';
+    progressEl = document.getElementById('quiz-progress');
+    questionEl = document.getElementById('quiz-question');
+    optionsEl = document.getElementById('quiz-options');
+    explainEl = document.getElementById('quiz-explain');
+    nextBtn = document.getElementById('quiz-next-btn');
+    nextBtn.addEventListener('click', function(){
+      currentIdx++;
+      if (currentIdx < quizQuestions.length){
+        renderQuestion();
+      } else {
+        renderSummary();
+      }
+    });
+  }
+
   function renderQuestion(){
     answered = false;
     var q = quizQuestions[currentIdx];
-    progressEl.textContent = "Savol " + (currentIdx + 1) + " / " + quizQuestions.length;
+    progressEl.textContent = "Savol " + (currentIdx + 1) + " / " + quizQuestions.length + (alreadyScoredToday ? '  (mashq rejimi — ball hisoblanmaydi)' : '');
     questionEl.textContent = q.q;
     explainEl.style.display = 'none';
     explainEl.textContent = '';
@@ -2956,34 +3098,32 @@
 
   function renderSummary(){
     var totalPlayed = parseInt(localStorage.getItem('quizTotalPlayed') || '0', 10) + quizQuestions.length;
-    var totalCorrect = parseInt(localStorage.getItem('quizTotalCorrect') || '0', 10) + score;
     localStorage.setItem('quizTotalPlayed', totalPlayed);
-    localStorage.setItem('quizTotalCorrect', totalCorrect);
-    document.dispatchEvent(new Event('scoreUpdated'));
+
+    var pointsMsg;
+    if (!alreadyScoredToday){
+      var totalCorrect = parseInt(localStorage.getItem('quizTotalCorrect') || '0', 10) + score;
+      localStorage.setItem('quizTotalCorrect', totalCorrect);
+      localStorage.setItem('quizLastScoredDay', todayKey);
+      alreadyScoredToday = true;
+      document.dispatchEvent(new Event('scoreUpdated'));
+      pointsMsg = 'Jami tarixingiz: ' + totalCorrect + " ball (bugungi " + score + " ball hisobga qo'shildi)";
+    } else {
+      pointsMsg = "Bu — mashq urinishi edi, bugungi ballaringiz allaqachon hisoblangan. Ertaga yangi savollar bilan qayting!";
+    }
 
     cardEl.innerHTML = '<div class="quiz-score-summary">' +
       '<div style="font-family:\'Space Mono\',monospace; font-size:12px; color:rgba(250,248,242,0.5); text-transform:uppercase; letter-spacing:1px;">Natija</div>' +
       '<div class="big-score">' + score + ' / ' + quizQuestions.length + '</div>' +
-      '<div style="margin-top:8px; font-size:13px; color:rgba(250,248,242,0.6);">Jami tarixingiz: ' + totalCorrect + ' / ' + totalPlayed + ' to\'g\'ri javob</div>' +
-      '<button class="quiz-restart-btn" id="quiz-restart-btn" type="button">Qayta boshlash</button>' +
+      '<div style="margin-top:8px; font-size:13px; color:rgba(250,248,242,0.6);">' + pointsMsg + '</div>' +
+      '<button class="quiz-restart-btn" id="quiz-restart-btn" type="button">Bosh sahifaga qaytish</button>' +
       '</div>';
     document.getElementById('quiz-restart-btn').addEventListener('click', function(){
-      currentIdx = 0;
-      score = 0;
-      location.reload();
+      renderStartScreen();
     });
   }
 
-  nextBtn.addEventListener('click', function(){
-    currentIdx++;
-    if (currentIdx < quizQuestions.length){
-      renderQuestion();
-    } else {
-      renderSummary();
-    }
-  });
-
-  renderQuestion();
+  renderStartScreen();
 })();
 </script>
 
@@ -3523,6 +3663,116 @@
   renderTop10();
 
   document.addEventListener('scoreUpdated', syncScoreToServer);
+})();
+</script>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.standings-tab');
+  var table = document.getElementById('standings-table');
+  var tbody = document.getElementById('standings-tbody');
+  var statusEl = document.getElementById('standings-status');
+
+  var cache = {};
+
+  function currentSeason(){
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = now.getMonth() + 1;
+    if (m >= 7){ return y + '-' + (y + 1); }
+    return (y - 1) + '-' + y;
+  }
+
+  function loadStandings(leagueId){
+    if (cache[leagueId]){
+      renderStandings(cache[leagueId]);
+      return;
+    }
+    table.style.display = 'none';
+    statusEl.style.display = 'block';
+    statusEl.textContent = 'Jadval yuklanmoqda…';
+
+    var season = currentSeason();
+    var url = 'https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=' + leagueId + '&s=' + season;
+    fetch(url)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (!data.table || !data.table.length){
+          statusEl.textContent = "Bu liga uchun hozircha jadval mavjud emas (mavsum hali boshlanmagan bo'lishi mumkin).";
+          return;
+        }
+        cache[leagueId] = data.table;
+        renderStandings(data.table);
+      })
+      .catch(function(){
+        statusEl.textContent = "Jadvalni yuklab bo'lmadi. Birozdan keyin qayta urinib ko'ring.";
+      });
+  }
+
+  function renderStandings(rows){
+    tbody.innerHTML = '';
+    rows.forEach(function(row){
+      var tr = document.createElement('tr');
+      var teamCellHtml = '<div class="standings-team-cell">' +
+        '<div class="standings-team-badge">' + (row.strBadge ? '<img src="' + row.strBadge + '" alt="">' : '') + '</div>' +
+        '<span>' + (row.strTeam || '') + '</span>' +
+        '</div>';
+      tr.innerHTML =
+        '<td class="standings-rank">' + row.intRank + '</td>' +
+        '<td>' + teamCellHtml + '</td>' +
+        '<td>' + row.intPlayed + '</td>' +
+        '<td>' + row.intWin + '</td>' +
+        '<td>' + row.intDraw + '</td>' +
+        '<td>' + row.intLoss + '</td>' +
+        '<td class="standings-pts">' + row.intPoints + '</td>';
+      tbody.appendChild(tr);
+    });
+    statusEl.style.display = 'none';
+    table.style.display = 'table';
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      loadStandings(tab.getAttribute('data-league'));
+    });
+  });
+
+  loadStandings(tabs[0].getAttribute('data-league'));
+})();
+</script>
+
+<script>
+(function(){
+  var badges = document.querySelectorAll('.view-count-badge');
+  if (!badges.length || typeof firebase === 'undefined') return;
+
+  var db = firebase.firestore();
+
+  badges.forEach(function(badge){
+    var id = badge.getAttribute('data-view-id');
+    if (!id) return;
+    var numEl = badge.querySelector('.vc-num');
+    var docRef = db.collection('viewCounts').doc(id);
+    var storageKey = 'viewed_' + id;
+    var alreadyViewed = localStorage.getItem(storageKey);
+
+    var writeOp = alreadyViewed
+      ? Promise.resolve()
+      : docRef.set({ count: firebase.firestore.FieldValue.increment(1) }, { merge: true })
+          .then(function(){ localStorage.setItem(storageKey, '1'); })
+          .catch(function(){});
+
+    writeOp.then(function(){
+      docRef.get().then(function(doc){
+        var count = (doc.exists && doc.data().count) ? doc.data().count : (alreadyViewed ? 1 : 1);
+        if (numEl) numEl.textContent = count;
+      }).catch(function(){
+        if (numEl) numEl.textContent = '–';
+      });
+    });
+  });
 })();
 </script>
 
