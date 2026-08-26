@@ -2908,54 +2908,121 @@
 
   function getFav(){ return localStorage.getItem('favTeam') || ''; }
 
+  function findTeamId(teamName){
+    var url = 'https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=' + encodeURIComponent(teamName);
+    return fetch(url)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data && data.teams && data.teams.length) return data.teams[0].idTeam;
+        return null;
+      })
+      .catch(function(){ return null; });
+  }
+
+  function fetchNextForTeam(teamId){
+    var url = 'https://www.thesportsdb.com/api/v1/json/123/eventsnext.php?id=' + teamId;
+    return fetch(url).then(function(res){ return res.json(); }).then(function(data){
+      return (data && data.events) ? data.events : [];
+    }).catch(function(){ return []; });
+  }
+
+  function fetchLastForTeam(teamId){
+    var url = 'https://www.thesportsdb.com/api/v1/json/123/eventslast.php?id=' + teamId;
+    return fetch(url).then(function(res){ return res.json(); }).then(function(data){
+      return (data && data.results) ? data.results : [];
+    }).catch(function(){ return []; });
+  }
+
+  function formatDate(dateStr){
+    if (!dateStr) return '';
+    var parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr;
+    var uzMonths = ['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentyabr','oktyabr','noyabr','dekabr'];
+    return parseInt(parts[2],10) + '-' + uzMonths[parseInt(parts[1],10)-1] + ', ' + parts[0];
+  }
+
+  function buildFavRow(match, idx){
+    var isFinishedMatch = match.intHomeScore !== null && match.intHomeScore !== undefined && match.intHomeScore !== '';
+    var scoreText = isFinishedMatch
+      ? (match.intHomeScore + ' : ' + match.intAwayScore)
+      : (match.strTime ? match.strTime.slice(0,5) : '--:--');
+
+    return '<div style="font-size:11px; color:rgba(250,248,242,0.4); margin-top:14px; margin-bottom:4px; font-family:\'Space Mono\',monospace;">' + formatDate(match.dateEvent) + (isFinishedMatch ? ' &middot; yakunlangan' : '') + '</div>' +
+      '<div class="fav-highlight-row">' +
+      '<div class="fx-badge fav-badge-home-' + idx + '" style="background:#fff;"></div>' +
+      '<div style="font-weight:700;">' + (match.strHomeTeam||'') + '</div>' +
+      '<div class="fx-time mono">' + scoreText + '</div>' +
+      '<div style="font-weight:700;">' + (match.strAwayTeam||'') + '</div>' +
+      '<div class="fx-badge fav-badge-away-' + idx + '" style="background:#fff;"></div>' +
+      '</div>';
+  }
+
+  var favTeamIdCache = {};
+  try { favTeamIdCache = JSON.parse(localStorage.getItem('favTeamIdCache') || '{}'); } catch(e){}
+
   function renderFavResult(){
     var fav = getFav();
     if (!fav){
       resultEl.innerHTML = '';
       return;
     }
-    var events = window.__todayEvents || [];
-    var match = events.find(function(ev){
-      var f = fav.toLowerCase();
-      return (ev.strHomeTeam && ev.strHomeTeam.toLowerCase().indexOf(f) !== -1) ||
-             (ev.strAwayTeam && ev.strAwayTeam.toLowerCase().indexOf(f) !== -1) ||
-             (f.indexOf(ev.strHomeTeam ? ev.strHomeTeam.toLowerCase() : '###') !== -1) ||
-             (f.indexOf(ev.strAwayTeam ? ev.strAwayTeam.toLowerCase() : '###') !== -1);
+
+    resultEl.innerHTML = 'Sevimli jamoangiz: <span class="fav-team-name">' + fav + '</span>' +
+      '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Qidirilmoqda&hellip;</div>';
+
+    var idPromise = favTeamIdCache[fav] ? Promise.resolve(favTeamIdCache[fav]) : findTeamId(fav);
+
+    idPromise.then(function(teamId){
+      if (!teamId){
+        resultEl.innerHTML = 'Sevimli jamoangiz: <span class="fav-team-name">' + fav + '</span>' +
+          '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bu jamoa nomi ma\'lumot bazamizda topilmadi. Nomni boshqacharoq (masalan inglizcha) yozib ko\'ring.</div>';
+        return;
+      }
+      favTeamIdCache[fav] = teamId;
+      localStorage.setItem('favTeamIdCache', JSON.stringify(favTeamIdCache));
+
+      Promise.all([fetchNextForTeam(teamId), fetchLastForTeam(teamId)]).then(function(results){
+        var upcoming = results[0] || [];
+        var recent = results[1] || [];
+
+        var matches = upcoming.slice();
+        if (matches.length < 5){
+          recent.forEach(function(m){
+            if (matches.length < 5) matches.push(m);
+          });
+        }
+        matches = matches.slice(0, 5);
+
+        var html = 'Sevimli jamoangiz: <span class="fav-team-name">' + fav + '</span>';
+
+        if (!matches.length){
+          html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bu jamoa uchun o\'yin ma\'lumoti topilmadi.</div>';
+          resultEl.innerHTML = html;
+          return;
+        }
+
+        matches.forEach(function(m, idx){
+          html += buildFavRow(m, idx);
+        });
+        resultEl.innerHTML = html;
+
+        matches.forEach(function(m, idx){
+          if (!window.fetchTeamBadge) return;
+          window.fetchTeamBadge(m.strHomeTeam).then(function(url){
+            if (url){
+              var el = resultEl.querySelector('.fav-badge-home-' + idx);
+              if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
+            }
+          });
+          window.fetchTeamBadge(m.strAwayTeam).then(function(url){
+            if (url){
+              var el = resultEl.querySelector('.fav-badge-away-' + idx);
+              if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
+            }
+          });
+        });
+      });
     });
-
-    var html = 'Sevimli jamoangiz: <span class="fav-team-name">' + fav + '</span>';
-    if (match){
-      var scoreText = (match.intHomeScore !== null && match.intHomeScore !== undefined && match.intHomeScore !== '')
-        ? (match.intHomeScore + ' : ' + match.intAwayScore)
-        : (match.strTime ? match.strTime.slice(0,5) : '--:--');
-      html += '<div class="fav-highlight-row">' +
-        '<div class="fx-badge" id="fav-home-badge" style="background:#fff;"></div>' +
-        '<div style="font-weight:700;">' + (match.strHomeTeam||'') + '</div>' +
-        '<div class="fx-time mono">' + scoreText + '</div>' +
-        '<div style="font-weight:700;">' + (match.strAwayTeam||'') + '</div>' +
-        '<div class="fx-badge" id="fav-away-badge" style="background:#fff;"></div>' +
-        '</div>';
-    } else if (events.length) {
-      html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugun jamoangiz ishtirokidagi o\'yin topilmadi (yoki ma\'lumot bazamiz uni qamrab olmagan).</div>';
-    } else {
-      html += '<div style="margin-top:10px; font-size:13px; color:rgba(250,248,242,0.5);">Bugungi jadval hali yuklanmoqda&hellip;</div>';
-    }
-    resultEl.innerHTML = html;
-
-    if (match && window.fetchTeamBadge){
-      window.fetchTeamBadge(match.strHomeTeam).then(function(url){
-        if (url){
-          var el = document.getElementById('fav-home-badge');
-          if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
-        }
-      });
-      window.fetchTeamBadge(match.strAwayTeam).then(function(url){
-        if (url){
-          var el = document.getElementById('fav-away-badge');
-          if (el) el.innerHTML = '<img src="' + url + '" style="width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box;" alt="">';
-        }
-      });
-    }
   }
 
   saveBtn.addEventListener('click', function(){
