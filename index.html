@@ -3919,12 +3919,21 @@
     return common / denom;
   }
 
+  var adKeywords = ['casino','kazino','казино','bet365','1xbet','mostbet','melbet','betwinner','parimatch','vulkan','stavka','ставк','bukmeker','букмекер','qimor','gambling','poker','покер','slot','слот','jackpot','джекпот','fribet','freebet','фрибет','promokod','промокод','depozit','депозит','bonus kod','bonus 100%','рулетка','ruletka','pul yutish','yutuqli o\'yin','казино'];
+
+  function isAdPost(text){
+    var lower = text.toLowerCase();
+    return adKeywords.some(function(k){ return lower.indexOf(k) !== -1; });
+  }
+
   Promise.all(channels.map(fetchChannel)).then(function(results){
     var allItems = [];
     results.forEach(function(items, idx){
       items.slice(0, 12).forEach(function(item){
+        var titleText = stripHtml(item.content_html || item.title || '').slice(0, 200);
+        if (isAdPost(titleText)) return;
         allItems.push({
-          title: stripHtml(item.content_html || item.title || '').slice(0, 200),
+          title: titleText,
           url: item.url,
           date: item.date_published ? new Date(item.date_published) : null,
           channel: channels[idx]
