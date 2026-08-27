@@ -1660,6 +1660,17 @@
         <div class="live-news-status" id="live-news-status">Yangiliklar yuklanmoqda va tarjima qilinmoqda&hellip;</div>
       </div>
     </div>
+
+    <div class="live-news">
+      <div class="live-head">
+        <span class="dot-live"></span>
+        <h3>Telegram kanallardan</h3>
+      </div>
+      <div class="live-source">Manba: @realmadrid_futbol_barselona, @UZREPORT_FUTBOL_TV &mdash; sinov rejimida, ba'zan ishlamasligi mumkin</div>
+      <div id="telegram-news-list">
+        <div class="live-news-status" id="telegram-news-status">Yuklanmoqda&hellip;</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -3849,6 +3860,147 @@
         if (numEl) numEl.textContent = '–';
       });
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var listEl = document.getElementById('telegram-news-list');
+  var statusEl = document.getElementById('telegram-news-status');
+
+  var channels = ['realmadrid_futbol_barselona', 'UZREPORT_FUTBOL_TV'];
+  var bridgeInstances = [
+    'https://rss-bridge.org/bridge01/',
+    'https://rssb.linuxoid.in/'
+  ];
+
+  function stripHtml(html){
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return (tmp.textContent || tmp.innerText || '').trim();
+  }
+
+  function fetchChannelViaBridge(bridgeUrl, username){
+    var url = bridgeUrl + '?action=display&bridge=Telegram&username=' + encodeURIComponent(username) + '&format=Json';
+    return fetch(url)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data && data.items && data.items.length) return data.items;
+        return null;
+      })
+      .catch(function(){ return null; });
+  }
+
+  function fetchChannel(username){
+    function tryInstance(i){
+      if (i >= bridgeInstances.length) return Promise.resolve([]);
+      return fetchChannelViaBridge(bridgeInstances[i], username).then(function(items){
+        if (items) return items;
+        return tryInstance(i + 1);
+      });
+    }
+    return tryInstance(0);
+  }
+
+  function normalizeTitle(t){
+    return t.toLowerCase().replace(/[^a-z0-9\u0400-\u04FF\u0100-\u017Fʻʼ'a-zА-Яа-яЁё ]+/g, ' ').replace(/\s+/g,' ').trim();
+  }
+
+  function titleSimilarity(a, b){
+    var wa = normalizeTitle(a).split(' ').filter(function(w){ return w.length > 3; });
+    var wb = normalizeTitle(b).split(' ').filter(function(w){ return w.length > 3; });
+    if (!wa.length || !wb.length) return 0;
+    var setB = {};
+    wb.forEach(function(w){ setB[w] = true; });
+    var common = 0;
+    wa.forEach(function(w){ if (setB[w]) common++; });
+    var denom = Math.max(wa.length, wb.length);
+    return common / denom;
+  }
+
+  Promise.all(channels.map(fetchChannel)).then(function(results){
+    var allItems = [];
+    results.forEach(function(items, idx){
+      items.slice(0, 12).forEach(function(item){
+        allItems.push({
+          title: stripHtml(item.content_html || item.title || '').slice(0, 200),
+          url: item.url,
+          date: item.date_published ? new Date(item.date_published) : null,
+          channel: channels[idx]
+        });
+      });
+    });
+
+    if (!allItems.length){
+      statusEl.textContent = "Hozircha yuklab bo'lmadi — bu sinov xizmati, birozdan keyin qayta urinib ko'ring.";
+      return;
+    }
+
+    allItems.sort(function(a,b){
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      return b.date - a.date;
+    });
+
+    var deduped = [];
+    allItems.forEach(function(item){
+      var isDuplicate = deduped.some(function(existing){
+        return titleSimilarity(item.title, existing.title) > 0.55;
+      });
+      if (!isDuplicate) deduped.push(item);
+    });
+
+    var seenUrls = [];
+    try { seenUrls = JSON.parse(localStorage.getItem('tgSeenUrls') || '[]'); } catch(e){}
+    var isFirstVisit = seenUrls.length === 0;
+
+    var toShow;
+    if (isFirstVisit){
+      toShow = deduped.slice(0, 12);
+    } else {
+      var seenSet = {};
+      seenUrls.forEach(function(u){ seenSet[u] = true; });
+      toShow = deduped.filter(function(item){ return item.url && !seenSet[item.url]; }).slice(0, 12);
+    }
+
+    var newSeenUrls = seenUrls.concat(deduped.map(function(item){ return item.url; }).filter(Boolean));
+    newSeenUrls = newSeenUrls.filter(function(u, idx){ return newSeenUrls.indexOf(u) === idx; });
+    if (newSeenUrls.length > 200) newSeenUrls = newSeenUrls.slice(-200);
+    localStorage.setItem('tgSeenUrls', JSON.stringify(newSeenUrls));
+
+    listEl.innerHTML = '';
+
+    if (!toShow.length){
+      var noneMsg = document.createElement('div');
+      noneMsg.className = 'live-news-status';
+      noneMsg.textContent = "Oxirgi tashrifingizdan beri yangi post yo'q.";
+      listEl.appendChild(noneMsg);
+      return;
+    }
+
+    toShow.forEach(function(item){
+      var a = document.createElement('a');
+      a.href = item.url || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'live-news-item';
+
+      var title = document.createElement('div');
+      title.className = 'live-news-title';
+      title.textContent = item.title || '(matnsiz post)';
+
+      var date = document.createElement('div');
+      date.className = 'live-news-date';
+      var dateStr = item.date ? item.date.toLocaleDateString('uz-UZ', { day:'2-digit', month:'2-digit', year:'numeric' }) : '';
+      date.textContent = '@' + item.channel + (dateStr ? ' · ' + dateStr : '');
+
+      a.appendChild(title);
+      a.appendChild(date);
+      listEl.appendChild(a);
+    });
+  }).catch(function(){
+    statusEl.textContent = "Telegram kanallaridan yuklab bo'lmadi.";
   });
 })();
 </script>
